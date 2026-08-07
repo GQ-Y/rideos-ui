@@ -1,0 +1,36 @@
+@import "./tokens.css";
+
+:root {
+  font-family: var(--rideos-font-family);
+  color: var(--rideos-n900);
+  background: var(--rideos-n150);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-width: 1024px;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font: inherit;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--rideos-brand);
+  outline-offset: 2px;
+}

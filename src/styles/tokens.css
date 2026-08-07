@@ -1,0 +1,45 @@
+/**
+ * RideOS-UI Design Tokens
+ * 对齐 Go-UI：品牌色 / 中性色 / 功能色 / 布局尺寸
+ */
+:root {
+  --rideos-brand: #009a7a;
+  --rideos-brand-90: rgba(0, 154, 122, 0.9);
+  --rideos-brand-70: rgba(0, 154, 122, 0.7);
+  --rideos-brand-15: rgba(0, 154, 122, 0.15);
+
+  --rideos-n900: #1f2329;
+  --rideos-n800: #2b2f36;
+  --rideos-n600: #646a73;
+  --rideos-n500: #8f959e;
+  --rideos-n400: #bbbfc4;
+  --rideos-n300: #dee0e3;
+  --rideos-n250: #ebeaed;
+  --rideos-n200: #f5f6f7;
+  --rideos-n150: #f2f4f7;
+  --rideos-n100: #f7f8fa;
+
+  --rideos-success: #4db054;
+  --rideos-warning: #ffa51e;
+  --rideos-danger: #fe5042;
+  --rideos-white: #ffffff;
+
+  --rideos-brand-h: 56px;
+  --rideos-nav-h: 40px;
+  --rideos-side-w: 220px;
+  --rideos-radius: 4px;
+  --rideos-radius-lg: 8px;
+  --rideos-control-h: 32px;
+  --rideos-space-1: 4px;
+  --rideos-space-2: 8px;
+  --rideos-space-3: 12px;
+  --rideos-space-4: 16px;
+  --rideos-space-5: 20px;
+  --rideos-space-6: 24px;
+
+  --rideos-font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Helvetica, Arial, sans-serif;
+  --rideos-font-h3: 18px / 26px;
+  --rideos-font-body: 14px / 20px;
+  --rideos-font-aux: 13px / 20px;
+  --rideos-font-caption: 12px / 18px;
+}
