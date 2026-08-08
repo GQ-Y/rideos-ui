@@ -8,12 +8,22 @@ export {
   BrandBar,
   Button,
   DataTable,
+  Descriptions,
+  DetailLayout,
+  Drawer,
   FilterBar,
+  FormField,
+  GeoFenceEditor,
+  Modal,
   PageCard,
   PageHeader,
   Pagination,
+  ResourceListPage,
   Sidebar,
+  StatStrip,
   StatusBadge,
+  Tabs,
+  Timeline,
 } from "./components";
 
 export { cx } from "./utils/cx";

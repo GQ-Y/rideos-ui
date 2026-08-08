@@ -1,50 +1,130 @@
+import { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
-import { ExpandOutlined, UserOutlined } from "@ant-design/icons";
+import {
+  BellOutlined,
+  CalendarOutlined,
+  DownOutlined,
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  SearchOutlined,
+  ThunderboltOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
 
-/** 顶部信息栏：品牌、角色视角、字号、全屏、用户 */
+/**
+ * 顶栏（白底）：折叠、全局搜索、快速入口、日期、消息铃铛、用户身份
+ * 对齐 RideOS 总平台设计稿右上角细节
+ */
 export function BrandBar({
-  title = "RideOS 管理后台",
-  userLabel = "管理员",
-  fontLarge = false,
-  onToggleFont,
-  onHome,
-  onFullscreen,
-  roleOptions,
-  roleValue,
-  onRoleChange,
-  actions,
+  sidebarCollapsed = false,
+  onToggleCollapse,
+  searchValue = "",
+  onSearchChange,
+  searchPlaceholder = "搜索菜单、数据、功能或帮助",
+  quickEntries = [],
+  onQuickEntry,
+  dateLabel,
+  notificationCount = 0,
+  onNotificationClick,
+  userName = "平台管理员",
+  userRole = "超级管理员",
+  onUserClick,
 }) {
+  const [quickOpen, setQuickOpen] = useState(false);
+  const quickRef = useRef(null);
+
+  useEffect(() => {
+    if (!quickOpen) return undefined;
+    function onPointer(event) {
+      if (!quickRef.current?.contains(event.target)) setQuickOpen(false);
+    }
+    document.addEventListener("mousedown", onPointer);
+    return () => document.removeEventListener("mousedown", onPointer);
+  }, [quickOpen]);
+
   return (
-    <header className="rideos-brand-bar">
-      <button type="button" className="rideos-brand-home" onClick={onHome} aria-label="返回首页">
-        <span className="rideos-brand-logo" aria-hidden="true">R</span>
-        <span className="rideos-brand-divider" />
-        <h1>{title}</h1>
-      </button>
-      <div className="rideos-brand-actions">
-        {roleOptions?.length > 0 && (
-          <select
-            className="rideos-role-switch"
-            aria-label="当前角色视角"
-            value={roleValue}
-            onChange={(event) => onRoleChange?.(event.target.value)}
+    <header className="rideos-topbar">
+      <div className="rideos-topbar-left">
+        <button
+          type="button"
+          className="rideos-topbar-icon-btn"
+          aria-label={sidebarCollapsed ? "展开菜单" : "收起菜单"}
+          onClick={onToggleCollapse}
+        >
+          {sidebarCollapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+        </button>
+        <label className="rideos-topbar-search">
+          <SearchOutlined aria-hidden="true" />
+          <input
+            value={searchValue}
+            onChange={(event) => onSearchChange?.(event.target.value)}
+            placeholder={searchPlaceholder}
+          />
+        </label>
+      </div>
+
+      <div className="rideos-topbar-right">
+        <div className="rideos-quick-entry" ref={quickRef}>
+          <button
+            type="button"
+            className={`rideos-topbar-pill${quickOpen ? " open" : ""}`}
+            aria-haspopup="menu"
+            aria-expanded={quickOpen}
+            onClick={() => setQuickOpen((value) => !value)}
           >
-            {roleOptions.map((role) => (
-              <option key={role.value} value={role.value}>{role.label}</option>
-            ))}
-          </select>
-        )}
-        {actions}
-        <button type="button" className="font-switch" aria-label="切换字号" onClick={onToggleFont}>
-          <span className={!fontLarge ? "selected" : ""}>小</span>
-          <span className={fontLarge ? "selected" : ""}>大</span>
+            <ThunderboltOutlined />
+            <span>快速入口</span>
+            <DownOutlined className="rideos-caret" />
+          </button>
+          {quickOpen && (
+            <div className="rideos-quick-menu" role="menu">
+              {quickEntries.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <button
+                    type="button"
+                    key={item.path}
+                    role="menuitem"
+                    onClick={() => {
+                      setQuickOpen(false);
+                      onQuickEntry?.(item.path);
+                    }}
+                  >
+                    {Icon && <Icon />}
+                    <span>{item.label}</span>
+                  </button>
+                );
+              })}
+            </div>
+          )}
+        </div>
+
+        <button type="button" className="rideos-topbar-pill rideos-date-pill" aria-label="业务日期">
+          <CalendarOutlined />
+          <span>{dateLabel}</span>
         </button>
-        <button type="button" className="icon-action" aria-label="全屏" onClick={onFullscreen}>
-          <ExpandOutlined />
+
+        <button
+          type="button"
+          className="rideos-notify-btn"
+          aria-label={`消息通知，${notificationCount} 条`}
+          onClick={onNotificationClick}
+        >
+          <BellOutlined />
+          {notificationCount > 0 && (
+            <b>{notificationCount > 99 ? "99+" : notificationCount}</b>
+          )}
         </button>
-        <button type="button" className="user-chip" aria-label="用户菜单">
-          <UserOutlined />
-          <span>{userLabel}</span>
+
+        <button type="button" className="rideos-user-block" aria-label="用户菜单" onClick={onUserClick}>
+          <span className="rideos-user-avatar" aria-hidden="true">
+            <UserOutlined />
+          </span>
+          <span className="rideos-user-meta">
+            <strong>{userName}</strong>
+            <small>{userRole}</small>
+          </span>
+          <DownOutlined className="rideos-caret" />
         </button>
       </div>
     </header>
@@ -52,17 +132,21 @@ export function BrandBar({
 }
 
 BrandBar.propTypes = {
-  title: PropTypes.string,
-  userLabel: PropTypes.string,
-  fontLarge: PropTypes.bool,
-  onToggleFont: PropTypes.func,
-  onHome: PropTypes.func,
-  onFullscreen: PropTypes.func,
-  roleOptions: PropTypes.arrayOf(PropTypes.shape({
-    value: PropTypes.string.isRequired,
+  sidebarCollapsed: PropTypes.bool,
+  onToggleCollapse: PropTypes.func,
+  searchValue: PropTypes.string,
+  onSearchChange: PropTypes.func,
+  searchPlaceholder: PropTypes.string,
+  quickEntries: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired,
+    icon: PropTypes.elementType,
   })),
-  roleValue: PropTypes.string,
-  onRoleChange: PropTypes.func,
-  actions: PropTypes.node,
+  onQuickEntry: PropTypes.func,
+  dateLabel: PropTypes.string,
+  notificationCount: PropTypes.number,
+  onNotificationClick: PropTypes.func,
+  userName: PropTypes.string,
+  userRole: PropTypes.string,
+  onUserClick: PropTypes.func,
 };
