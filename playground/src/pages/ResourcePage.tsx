@@ -1,5 +1,5 @@
-import { PageHeader, ResourceListPage } from "@rideos/ui";
-import type { ResourceRow } from "@rideos/ui";
+import { PageHeader, ResourceListPage } from "@rideos-ai/ui";
+import type { ResourceRow } from "@rideos-ai/ui";
 
 const DRIVERS: ResourceRow[] = [
   { id: "d1", name: "王建国", phone: "13800001111", city: "上海", trips: 1286, status: "在职", tab: "active", confirmAction: "停用", nextStatus: "已停用", navigateTo: "/kit/scene" },

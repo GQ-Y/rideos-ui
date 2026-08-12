@@ -26,7 +26,7 @@ import {
   Text,
   Textarea,
   Title,
-} from "@rideos/ui";
+} from "@rideos-ai/ui";
 import { DemoRow, DemoSection } from "./DemoSection";
 
 const TAB_CONTENT: Record<string, string> = {

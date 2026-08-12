@@ -16,8 +16,8 @@ import {
   StatusBadge,
   Steps,
   Timeline,
-} from "@rideos/ui";
-import type { FilterFieldValue } from "@rideos/ui";
+} from "@rideos-ai/ui";
+import type { FilterFieldValue } from "@rideos-ai/ui";
 import { DemoRow, DemoSection } from "./DemoSection";
 
 interface OrderRow {

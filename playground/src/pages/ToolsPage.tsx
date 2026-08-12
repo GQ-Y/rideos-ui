@@ -10,7 +10,7 @@ import {
   Splitter,
   Tag,
   Watermark,
-} from "@rideos/ui";
+} from "@rideos-ai/ui";
 import { DemoRow, DemoSection } from "./DemoSection";
 
 const ANCHOR_SECTIONS = [

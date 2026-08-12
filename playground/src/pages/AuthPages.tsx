@@ -13,7 +13,7 @@ import {
   ResetPasswordForm,
   SsoAuthorizePanel,
   SsoLoginPanel,
-} from "@rideos/ui";
+} from "@rideos-ai/ui";
 
 const AUTH_PAGES: Array<{ path: string; title: string; desc: string }> = [
   { path: "/auth/login", title: "登录页", desc: "账号密码 / 手机验证码双模式 + 第三方登录入口" },

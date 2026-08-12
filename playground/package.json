@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "@ant-design/icons": "^6.3.2",
-    "@rideos/charts": "workspace:*",
-    "@rideos/ui": "workspace:*",
+    "@rideos-ai/charts": "workspace:*",
+    "@rideos-ai/ui": "workspace:*",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },

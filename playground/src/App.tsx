@@ -18,8 +18,8 @@ import {
   PageCard,
   PageHeader,
   setRideosTheme,
-} from "@rideos/ui";
-import type { AppPageTab, BrandBarNotification, RideosTheme } from "@rideos/ui";
+} from "@rideos-ai/ui";
+import type { AppPageTab, BrandBarNotification, RideosTheme } from "@rideos-ai/ui";
 import { useMockChat } from "./mockChat";
 import { AdvancedPage } from "./pages/AdvancedPage";
 import { AIChatPage } from "./pages/AIChatPage";

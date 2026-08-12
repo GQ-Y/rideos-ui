@@ -1,4 +1,4 @@
-import { PageCard, PageHeader } from "@rideos/ui";
+import { PageCard, PageHeader } from "@rideos-ai/ui";
 import {
   BarChart,
   GaugeChart,
@@ -6,7 +6,7 @@ import {
   PieChart,
   RadarChart,
   ScatterChart,
-} from "@rideos/charts";
+} from "@rideos-ai/charts";
 
 const WEEK = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"];
 const CITIES = ["上海", "杭州", "苏州", "南京"];
@@ -16,7 +16,7 @@ export function ChartsPage() {
     <>
       <PageHeader
         breadcrumb={["组件示例", "图表组件"]}
-        title="图表组件 @rideos/charts"
+        title="图表组件 @rideos-ai/charts"
         description="纯 SVG 实现、零第三方依赖:折线 / 曲线 / 面积 / 柱状(分组、堆叠) / 饼图 / 环形 / 雷达 / 仪表盘 / 散点。图例可点击开关系列,悬浮查看数值。"
       />
       <div

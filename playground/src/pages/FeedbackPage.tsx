@@ -26,7 +26,7 @@ import {
   Textarea,
   Tooltip,
   Tour,
-} from "@rideos/ui";
+} from "@rideos-ai/ui";
 import { DemoRow, DemoSection } from "./DemoSection";
 
 export function FeedbackPage() {

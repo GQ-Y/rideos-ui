@@ -8,8 +8,8 @@ import {
   Transfer,
   Tree,
   VirtualList,
-} from "@rideos/ui";
-import type { TransferItem, TreeNodeData } from "@rideos/ui";
+} from "@rideos-ai/ui";
+import type { TransferItem, TreeNodeData } from "@rideos-ai/ui";
 import { DemoRow, DemoSection } from "./DemoSection";
 
 const ORG_TREE: TreeNodeData[] = [

@@ -1,6 +1,6 @@
 /**
- * @rideos/ui — RideOS 企业级 React PC 组件库
- * 使用前请引入样式:import "@rideos/ui/styles.css"
+ * @rideos-ai/ui — RideOS 企业级 React PC 组件库
+ * 使用前请引入样式:import "@rideos-ai/ui/styles.css"
  */
 export * from "./components/Affix";
 export * from "./components/AIChat";

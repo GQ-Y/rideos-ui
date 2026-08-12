@@ -1,4 +1,4 @@
-/** 图表分类色板:走 @rideos/ui token,未引入 token 时使用回退色 */
+/** 图表分类色板:走 @rideos-ai/ui token,未引入 token 时使用回退色 */
 export const CHART_COLORS = [
   "var(--rideos-chart-1, #009a7a)",
   "var(--rideos-chart-2, #3b82f6)",

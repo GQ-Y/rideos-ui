@@ -1,6 +1,6 @@
 /**
- * @rideos/charts 扩展样式:雷达图 / 仪表盘 / 散点图
- * 颜色走 @rideos/ui 的 --rideos-* token;未引入 token 时使用回退值。
+ * @rideos-ai/charts 扩展样式:雷达图 / 仪表盘 / 散点图
+ * 颜色走 @rideos-ai/ui 的 --rideos-* token;未引入 token 时使用回退值。
  * 轴标签与网格线复用 charts.css 的 .rideos-chart-axis-label / .rideos-chart-grid-line。
  */
 
