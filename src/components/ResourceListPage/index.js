@@ -1,1 +1,0 @@
-export { ResourceListPage } from "./ResourceListPage";

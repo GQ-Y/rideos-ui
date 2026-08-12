@@ -1,0 +1,333 @@
+/**
+ * 全局视觉打磨层(加载在各组件样式之后,统一覆盖)
+ * 内容:按钮全状态、弹层入场动画、Modal/Drawer 动效、悬停/焦点反馈、细节质感
+ */
+
+/* ---------------- 通用动效 ---------------- */
+
+@keyframes rideos-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes rideos-pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+
+@keyframes rideos-zoom-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes rideos-slide-from-right {
+  from {
+    transform: translateX(28px);
+    opacity: 0.5;
+  }
+}
+
+@keyframes rideos-slide-from-left {
+  from {
+    transform: translateX(-28px);
+    opacity: 0.5;
+  }
+}
+
+/* 下拉/面板类浮层:上浮渐入(这些浮层不使用 transform 定位) */
+.rideos-select-popup,
+.rideos-timepicker-popup,
+.rideos-datepicker-popup,
+.rideos-cascader-popup,
+.rideos-colorpicker-popup,
+.rideos-quick-menu,
+.rideos-notify-menu,
+.rideos-user-menu,
+.rideos-topbar-cal,
+.rideos-menu-flyout {
+  animation: rideos-pop-in 0.16s var(--rideos-ease);
+}
+
+/* 使用 transform 定位的浮层:仅淡入 */
+.rideos-tooltip,
+.rideos-popover,
+.rideos-dropdown-menu {
+  animation: rideos-fade-in 0.15s var(--rideos-ease);
+}
+
+/* Modal / Drawer 入场 */
+.rideos-modal-mask,
+.rideos-drawer-mask {
+  animation: rideos-fade-in 0.18s var(--rideos-ease);
+}
+
+.rideos-modal {
+  border-radius: 12px;
+  animation: rideos-zoom-in 0.2s var(--rideos-ease);
+}
+
+.rideos-drawer {
+  animation: rideos-slide-from-right 0.22s var(--rideos-ease);
+}
+
+.rideos-drawer.left {
+  animation: rideos-slide-from-left 0.22s var(--rideos-ease);
+}
+
+/* ---------------- Button 全状态 ---------------- */
+
+.rideos-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition:
+    color 0.15s var(--rideos-ease),
+    border-color 0.15s var(--rideos-ease),
+    background 0.15s var(--rideos-ease),
+    box-shadow 0.15s var(--rideos-ease),
+    transform 0.1s var(--rideos-ease);
+}
+
+.rideos-btn:hover:not(:disabled):not(.rideos-btn-primary):not(.rideos-btn-danger) {
+  color: var(--rideos-brand);
+  border-color: var(--rideos-brand-70);
+}
+
+.rideos-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.rideos-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.rideos-btn:focus-visible {
+  outline: none;
+  border-color: var(--rideos-brand);
+  box-shadow: 0 0 0 3px var(--rideos-brand-15);
+}
+
+.rideos-btn-primary {
+  background: linear-gradient(180deg, #00ac87 0%, var(--rideos-brand) 100%);
+  box-shadow: 0 2px 6px rgba(0, 154, 122, 0.28);
+}
+
+.rideos-btn-primary:hover:not(:disabled) {
+  background: linear-gradient(180deg, #00bd95 0%, #00a583 100%);
+  box-shadow: 0 3px 10px rgba(0, 154, 122, 0.34);
+}
+
+.rideos-btn-primary:active:not(:disabled) {
+  box-shadow: 0 1px 3px rgba(0, 154, 122, 0.3);
+}
+
+.rideos-btn-danger,
+.rideos-btn.rideos-btn-danger {
+  box-shadow: 0 2px 6px rgba(254, 80, 66, 0.25);
+}
+
+/* ---------------- 表格 ---------------- */
+
+.rideos-data-table-wrap {
+  border-radius: var(--rideos-radius-lg);
+  box-shadow: var(--rideos-shadow-sm);
+}
+
+.rideos-data-table th {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--rideos-n500);
+}
+
+.rideos-data-table tbody td {
+  transition: background 0.12s ease;
+}
+
+.rideos-data-table tbody tr:hover td {
+  background: rgba(0, 154, 122, 0.05);
+}
+
+.rideos-table-pagination button {
+  transition:
+    color 0.12s ease,
+    border-color 0.12s ease,
+    background 0.12s ease;
+}
+
+.rideos-table-pagination button:hover:not(:disabled):not(.active) {
+  color: var(--rideos-brand);
+  border-color: var(--rideos-brand-70);
+}
+
+/* ---------------- Tabs ---------------- */
+
+.rideos-tab {
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.rideos-tab:hover:not(.active) {
+  color: var(--rideos-brand);
+}
+
+/* ---------------- 徽标 / 标签 ---------------- */
+
+.rideos-status-badge {
+  border-radius: 999px;
+  padding: 0 10px;
+  font-weight: 500;
+}
+
+.rideos-tag {
+  transition:
+    opacity 0.12s ease,
+    transform 0.12s ease;
+}
+
+.rideos-tag.is-clickable:hover {
+  opacity: 0.85;
+}
+
+/* ---------------- 表单细节 ---------------- */
+
+.rideos-form-label {
+  font-weight: 500;
+}
+
+.rideos-checkbox-box,
+.rideos-radio-dot {
+  transition:
+    background 0.15s var(--rideos-ease),
+    border-color 0.15s var(--rideos-ease),
+    box-shadow 0.15s var(--rideos-ease);
+}
+
+.rideos-radio-input:focus-visible + .rideos-radio-dot {
+  box-shadow: 0 0 0 3px var(--rideos-brand-15);
+}
+
+.rideos-switch:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--rideos-brand-15);
+}
+
+.rideos-select-option,
+.rideos-cascader-option,
+.rideos-dropdown-item,
+.rideos-menu-item,
+.rideos-tree-node,
+.rideos-timepicker-cell,
+.rideos-datepanel-day,
+.rideos-calendar-cell {
+  transition:
+    background 0.12s ease,
+    color 0.12s ease;
+}
+
+/* ---------------- 时间线 / 描述列表 ---------------- */
+
+.rideos-timeline-dot {
+  border-width: 3px;
+  box-shadow: 0 0 0 3px var(--rideos-brand-15);
+}
+
+.rideos-descriptions-item {
+  border: 1px solid transparent;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease;
+}
+
+.rideos-descriptions-item:hover {
+  border-color: var(--rideos-n250);
+  background: var(--rideos-n150);
+}
+
+/* ---------------- 弹层头部与关闭钮 ---------------- */
+
+.rideos-modal-head h3,
+.rideos-drawer-head h3 {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.rideos-drawer-close {
+  transition:
+    background 0.12s ease,
+    color 0.12s ease,
+    transform 0.12s ease;
+}
+
+.rideos-drawer-close:hover {
+  color: var(--rideos-danger);
+  transform: rotate(90deg);
+}
+
+/* ---------------- 滚动条全局细化(内容区) ---------------- */
+
+.rideos-page-host::-webkit-scrollbar,
+.rideos-drawer-body::-webkit-scrollbar,
+.rideos-modal-body::-webkit-scrollbar,
+.rideos-select-popup::-webkit-scrollbar,
+.rideos-notify-menu-list::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.rideos-page-host::-webkit-scrollbar-thumb,
+.rideos-drawer-body::-webkit-scrollbar-thumb,
+.rideos-modal-body::-webkit-scrollbar-thumb,
+.rideos-select-popup::-webkit-scrollbar-thumb,
+.rideos-notify-menu-list::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: var(--rideos-n300);
+}
+
+.rideos-page-host::-webkit-scrollbar-thumb:hover,
+.rideos-drawer-body::-webkit-scrollbar-thumb:hover,
+.rideos-modal-body::-webkit-scrollbar-thumb:hover {
+  background: var(--rideos-n400);
+}
+
+/* ---------------- AIChat / 浮窗细节 ---------------- */
+
+.rideos-aichat-msg {
+  animation: rideos-pop-in 0.18s var(--rideos-ease);
+}
+
+.rideos-float-trigger:active {
+  transform: scale(0.96);
+}
+
+/* ---------------- 骨架屏圆角随 token ---------------- */
+
+.rideos-skeleton-title,
+.rideos-skeleton-row {
+  border-radius: var(--rideos-radius);
+}
+
+/* ---------------- 深色主题微调 ---------------- */
+
+[data-rideos-theme="dark"] .rideos-btn-primary {
+  box-shadow: 0 2px 8px rgba(0, 154, 122, 0.45);
+}
+
+[data-rideos-theme="dark"] .rideos-data-table tbody tr:hover td {
+  background: rgba(0, 154, 122, 0.1);
+}
+
+[data-rideos-theme="dark"] .rideos-descriptions-item:hover {
+  background: var(--rideos-n200);
+}

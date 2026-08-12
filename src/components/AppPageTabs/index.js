@@ -1,1 +1,0 @@
-export { AppPageTabs } from "./AppPageTabs";

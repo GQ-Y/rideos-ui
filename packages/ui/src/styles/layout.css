@@ -1,0 +1,435 @@
+/* ============================================================
+ * 布局与通用展示组件
+ * Layout / Grid / Flex / Container / Image / Carousel / Slider / Rate / BackTop
+ * ============================================================ */
+
+/* —— Layout 布局 —— */
+.rideos-layout {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  background: var(--rideos-n150);
+}
+
+.rideos-layout-has-sider {
+  flex-direction: row;
+}
+
+.rideos-layout-header {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  min-height: var(--rideos-brand-h);
+  padding: 0 var(--rideos-space-6);
+  background: var(--rideos-white);
+  color: var(--rideos-n900);
+  border-bottom: 1px solid var(--rideos-n250);
+}
+
+.rideos-layout-sider {
+  flex: 0 0 auto;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--rideos-white);
+  color: var(--rideos-n900);
+  border-right: 1px solid var(--rideos-n250);
+  transition:
+    width 0.2s ease,
+    flex-basis 0.2s ease;
+}
+
+.rideos-layout-content {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+  color: var(--rideos-n900);
+}
+
+.rideos-layout-footer {
+  flex: 0 0 auto;
+  padding: var(--rideos-space-4) var(--rideos-space-6);
+  color: var(--rideos-n600);
+  font-size: 13px;
+  line-height: 20px;
+}
+
+/* —— Grid 栅格 —— */
+.rideos-row {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.rideos-row.align-top {
+  align-items: flex-start;
+}
+.rideos-row.align-middle {
+  align-items: center;
+}
+.rideos-row.align-bottom {
+  align-items: flex-end;
+}
+.rideos-row.align-stretch {
+  align-items: stretch;
+}
+
+.rideos-row.justify-start {
+  justify-content: flex-start;
+}
+.rideos-row.justify-center {
+  justify-content: center;
+}
+.rideos-row.justify-end {
+  justify-content: flex-end;
+}
+.rideos-row.justify-space-between {
+  justify-content: space-between;
+}
+.rideos-row.justify-space-around {
+  justify-content: space-around;
+}
+.rideos-row.justify-space-evenly {
+  justify-content: space-evenly;
+}
+
+.rideos-col {
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 1px;
+}
+
+/* —— Flex 弹性布局 —— */
+.rideos-flex {
+  display: flex;
+  min-width: 0;
+}
+
+/* —— Container 页面容器 —— */
+.rideos-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rideos-container.is-padded {
+  padding-left: var(--rideos-space-6);
+  padding-right: var(--rideos-space-6);
+}
+
+/* —— Image 图片 —— */
+.rideos-image {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: middle;
+  border-radius: var(--rideos-radius);
+  background: var(--rideos-n200);
+}
+
+.rideos-image-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.rideos-image.is-clickable .rideos-image-img {
+  cursor: zoom-in;
+}
+
+.rideos-image-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-width: 48px;
+  min-height: 48px;
+  color: var(--rideos-n400);
+  background: var(--rideos-n200);
+  font-size: 12px;
+  line-height: 18px;
+}
+
+/* 预览遮罩:与 Modal/Drawer 遮罩同一色系,看图加深 */
+.rideos-image-preview {
+  position: fixed;
+  inset: 0;
+  z-index: var(--rideos-z-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(31, 35, 41, 0.72);
+  cursor: zoom-out;
+  animation: rideos-image-preview-in 0.18s ease;
+}
+
+@keyframes rideos-image-preview-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.rideos-image-preview-img {
+  max-width: calc(100vw - 64px);
+  max-height: calc(100vh - 64px);
+  border-radius: var(--rideos-radius);
+  cursor: default;
+}
+
+.rideos-image-preview-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--rideos-n800);
+  color: var(--rideos-n100);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.rideos-image-preview-close:hover {
+  background: var(--rideos-n600);
+}
+
+/* —— Carousel 走马灯 —— */
+.rideos-carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--rideos-radius-lg);
+  background: var(--rideos-n200);
+}
+
+.rideos-carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.4s ease;
+}
+
+.rideos-carousel-panel {
+  flex: 0 0 100%;
+  min-width: 100%;
+  min-height: 0;
+}
+
+.rideos-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  background: var(--rideos-n800);
+  color: var(--rideos-n100);
+  opacity: 0.6;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.rideos-carousel-arrow:hover {
+  opacity: 0.9;
+}
+
+.rideos-carousel-arrow.is-prev {
+  left: var(--rideos-space-3);
+}
+
+.rideos-carousel-arrow.is-next {
+  right: var(--rideos-space-3);
+}
+
+.rideos-carousel-dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: var(--rideos-space-3);
+  display: flex;
+  justify-content: center;
+  gap: var(--rideos-space-2);
+}
+
+.rideos-carousel-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: var(--rideos-white);
+  opacity: 0.55;
+  cursor: pointer;
+  transition:
+    width 0.2s ease,
+    opacity 0.2s ease,
+    background 0.2s ease;
+}
+
+.rideos-carousel-dot.is-active {
+  width: 20px;
+  opacity: 1;
+  background: var(--rideos-brand);
+}
+
+/* —— Slider 滑块 —— */
+.rideos-slider {
+  position: relative;
+  padding: 7px 0;
+  cursor: pointer;
+  touch-action: none;
+}
+
+.rideos-slider-rail {
+  position: relative;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--rideos-n250);
+}
+
+.rideos-slider-track {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  border-radius: 3px;
+  background: var(--rideos-brand);
+}
+
+.rideos-slider-handle {
+  position: absolute;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--rideos-white);
+  border: 2px solid var(--rideos-brand);
+  box-shadow: 0 1px 4px rgba(31, 35, 41, 0.16);
+  transition: box-shadow 0.15s ease;
+}
+
+.rideos-slider-handle:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--rideos-brand-15);
+}
+
+.rideos-slider.is-dragging .rideos-slider-handle {
+  box-shadow: 0 0 0 4px var(--rideos-brand-15);
+}
+
+.rideos-slider-bubble {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 2px 8px;
+  border-radius: var(--rideos-radius);
+  background: var(--rideos-n900);
+  color: var(--rideos-n100);
+  font-size: 12px;
+  line-height: 18px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.rideos-slider.is-disabled {
+  cursor: not-allowed;
+}
+
+.rideos-slider.is-disabled .rideos-slider-track {
+  background: var(--rideos-n400);
+}
+
+.rideos-slider.is-disabled .rideos-slider-handle {
+  border-color: var(--rideos-n400);
+  box-shadow: none;
+}
+
+/* —— Rate 评分 —— */
+.rideos-rate {
+  display: inline-flex;
+  gap: var(--rideos-space-1);
+  color: var(--rideos-n300);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.rideos-rate.is-disabled {
+  cursor: default;
+}
+
+.rideos-rate-star {
+  position: relative;
+  display: inline-flex;
+  line-height: 1;
+  transition: transform 0.15s ease;
+}
+
+.rideos-rate:not(.is-disabled) .rideos-rate-star:hover {
+  transform: scale(1.12);
+}
+
+.rideos-rate-star svg {
+  display: block;
+}
+
+.rideos-rate-star-second {
+  display: inline-flex;
+}
+
+.rideos-rate-star-first {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.rideos-rate-star.is-full {
+  color: var(--rideos-warning);
+}
+
+.rideos-rate-star.is-half .rideos-rate-star-first {
+  opacity: 1;
+  color: var(--rideos-warning);
+}
+
+/* —— BackTop 回到顶部 —— */
+.rideos-backtop {
+  position: fixed;
+  right: var(--rideos-space-6);
+  bottom: 100px;
+  z-index: var(--rideos-z-float);
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--rideos-n250);
+  border-radius: 50%;
+  background: var(--rideos-white);
+  color: var(--rideos-n600);
+  box-shadow: 0 4px 14px rgba(31, 35, 41, 0.16);
+  cursor: pointer;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.rideos-backtop:hover {
+  color: var(--rideos-brand);
+  border-color: var(--rideos-brand);
+  transform: translateY(-2px);
+}

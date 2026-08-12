@@ -1,0 +1,84 @@
+/* ============================================================
+   浅色主题(data-rideos-theme="light")
+   内容区与墨绿主题共享基础浅色 token,差异在应用壳层:
+   侧栏/导航从墨绿深底切换为浅色表面,保留品牌绿点缀。
+   ============================================================ */
+
+/* —— 侧栏容器 —— */
+[data-rideos-theme="light"] .rideos-sidebar {
+  color: var(--rideos-n800);
+  background:
+    radial-gradient(420px 280px at -80px -100px, rgba(0, 154, 122, 0.06), transparent 70%),
+    linear-gradient(180deg, #ffffff 0%, #f7f9f9 100%);
+  border-right: 1px solid var(--rideos-n250);
+}
+
+[data-rideos-theme="light"] .rideos-sidebar-brand {
+  color: var(--rideos-n900);
+  border-bottom-color: var(--rideos-n200);
+}
+
+[data-rideos-theme="light"] .rideos-sidebar-brand-meta small {
+  color: var(--rideos-n500);
+}
+
+[data-rideos-theme="light"] .rideos-side-scroll::-webkit-scrollbar-thumb {
+  background: rgba(31, 35, 41, 0.16);
+}
+
+/* —— 一级菜单行 —— */
+[data-rideos-theme="light"] .rideos-menu-row {
+  color: var(--rideos-n800);
+}
+
+[data-rideos-theme="light"] .rideos-menu-row:hover {
+  background: var(--rideos-n100);
+  color: var(--rideos-brand);
+}
+
+[data-rideos-theme="light"] .rideos-menu-row.active {
+  color: var(--rideos-brand);
+  background: linear-gradient(90deg, var(--rideos-brand-15) 0%, rgba(0, 154, 122, 0.04) 100%);
+}
+
+[data-rideos-theme="light"] .rideos-menu-row.active::before {
+  background: linear-gradient(180deg, #00c896, var(--rideos-brand));
+  box-shadow: none;
+}
+
+/* —— 子菜单 —— */
+[data-rideos-theme="light"] .rideos-submenu button {
+  color: var(--rideos-n600);
+}
+
+[data-rideos-theme="light"] .rideos-submenu button:hover {
+  color: var(--rideos-brand);
+  background: var(--rideos-n100);
+}
+
+[data-rideos-theme="light"] .rideos-submenu button.active {
+  color: var(--rideos-brand);
+  background: rgba(0, 154, 122, 0.12);
+}
+
+[data-rideos-theme="light"] .rideos-submenu button.active .rideos-submenu-dot {
+  background: var(--rideos-brand);
+  box-shadow: none;
+}
+
+/* —— 折叠态飞出面板(本就是浅色面板,修正深色描边) —— */
+[data-rideos-theme="light"] .rideos-submenu-flyout {
+  border-color: var(--rideos-n250);
+  box-shadow: var(--rideos-shadow-lg);
+}
+
+/* —— 底部折叠按钮 —— */
+[data-rideos-theme="light"] .rideos-sidebar-footer {
+  color: var(--rideos-n600);
+  border-top-color: var(--rideos-n200);
+}
+
+[data-rideos-theme="light"] .rideos-sidebar-footer:hover {
+  color: var(--rideos-brand);
+  background: var(--rideos-n100);
+}

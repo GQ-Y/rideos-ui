@@ -1,0 +1,146 @@
+/**
+ * RideOS-UI 页面工具组件样式
+ * Watermark / Scrollbar / Splitter / Anchor / Affix
+ * 仅使用 tokens.css 的 --rideos-* 变量,暗色主题自动生效
+ */
+
+/* —— Watermark 水印 —— */
+.rideos-watermark {
+  position: relative;
+}
+
+.rideos-watermark-layer {
+  position: absolute;
+  inset: 0;
+  background-repeat: repeat;
+  pointer-events: none;
+}
+
+/* —— Scrollbar 滚动条 —— */
+.rideos-scrollbar {
+  overflow: auto;
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: var(--rideos-n300) transparent;
+}
+
+.rideos-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.rideos-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.rideos-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: var(--rideos-n300);
+}
+
+.rideos-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--rideos-n400);
+}
+
+/* —— Splitter 分隔面板 —— */
+.rideos-splitter {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--rideos-white);
+}
+
+.rideos-splitter.is-vertical {
+  flex-direction: column;
+}
+
+.rideos-splitter-pane {
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+}
+
+.rideos-splitter-bar {
+  flex: 0 0 6px;
+  border-radius: 3px;
+  background: var(--rideos-n250);
+  transition: background 0.15s ease;
+}
+
+.rideos-splitter:not(.is-vertical) > .rideos-splitter-bar {
+  cursor: col-resize;
+}
+
+.rideos-splitter.is-vertical > .rideos-splitter-bar {
+  cursor: row-resize;
+}
+
+.rideos-splitter-bar:hover,
+.rideos-splitter.is-dragging > .rideos-splitter-bar {
+  background: var(--rideos-brand);
+}
+
+/* 拖拽期间禁用面板内文本选择 */
+.rideos-splitter.is-dragging .rideos-splitter-pane {
+  user-select: none;
+}
+
+/* —— Anchor 锚点 —— */
+.rideos-anchor {
+  position: relative;
+  display: block;
+  padding-left: var(--rideos-space-3);
+  font: var(--rideos-font-aux);
+}
+
+/* 左侧竖线轨道 */
+.rideos-anchor::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  border-radius: 1px;
+  background: var(--rideos-n250);
+}
+
+/* 跟随高亮项的游标 */
+.rideos-anchor-ink {
+  position: absolute;
+  left: 0;
+  width: 2px;
+  border-radius: 1px;
+  background: var(--rideos-brand);
+  transition:
+    top 0.15s ease,
+    height 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.rideos-anchor-item {
+  display: block;
+  padding: var(--rideos-space-1) 0;
+  color: var(--rideos-n600);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.rideos-anchor-item:hover {
+  color: var(--rideos-n900);
+}
+
+.rideos-anchor-item.is-active {
+  color: var(--rideos-brand);
+}
+
+/* —— Affix 固钉 —— */
+.rideos-affix {
+  position: relative;
+}
+
+.rideos-affix-fixed {
+  position: fixed;
+  z-index: var(--rideos-z-float);
+}

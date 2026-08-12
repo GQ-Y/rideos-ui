@@ -1,0 +1,133 @@
+/* —— FloatWidget 四角浮窗 —— */
+.rideos-float-trigger {
+  position: fixed;
+  z-index: var(--rideos-z-float);
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: var(--rideos-brand);
+  color: var(--rideos-white);
+  box-shadow: 0 6px 20px rgba(0, 154, 122, 0.35);
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
+}
+
+.rideos-float-trigger:hover {
+  background: var(--rideos-brand-90);
+  transform: scale(1.05);
+}
+
+.rideos-float-trigger.is-open {
+  background: var(--rideos-n800);
+  box-shadow: 0 6px 20px rgba(31, 35, 41, 0.28);
+}
+
+.rideos-float-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  border: 2px solid var(--rideos-white);
+  background: var(--rideos-danger);
+  color: var(--rideos-white);
+  font-size: 10px;
+  line-height: 14px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.rideos-float-panel {
+  position: fixed;
+  z-index: var(--rideos-z-float);
+  display: flex;
+  flex-direction: column;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 120px);
+  border: 1px solid var(--rideos-n250);
+  border-radius: 12px;
+  background: var(--rideos-white);
+  box-shadow: 0 16px 48px rgba(31, 35, 41, 0.22);
+  overflow: hidden;
+  animation: rideos-float-in 0.18s ease;
+}
+
+/* 弹出动画的收缩原点跟随停靠角 */
+.rideos-float-widget.pos-bottom-right .rideos-float-panel {
+  transform-origin: bottom right;
+}
+.rideos-float-widget.pos-bottom-left .rideos-float-panel {
+  transform-origin: bottom left;
+}
+.rideos-float-widget.pos-top-right .rideos-float-panel {
+  transform-origin: top right;
+}
+.rideos-float-widget.pos-top-left .rideos-float-panel {
+  transform-origin: top left;
+}
+
+@keyframes rideos-float-in {
+  from {
+    opacity: 0;
+    transform: scale(0.88) translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.rideos-float-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 8px 0 14px;
+  border-bottom: 1px solid var(--rideos-n250);
+  flex: 0 0 auto;
+}
+
+.rideos-float-panel-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--rideos-n900);
+}
+
+.rideos-float-panel-close {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--rideos-n600);
+  cursor: pointer;
+}
+
+.rideos-float-panel-close:hover {
+  background: var(--rideos-n200);
+}
+
+.rideos-float-panel-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 面板内嵌 AIChat 时铺满且去掉双重边框 */
+.rideos-float-panel-body > .rideos-aichat {
+  flex: 1;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+}

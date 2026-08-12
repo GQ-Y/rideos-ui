@@ -1,0 +1,46 @@
+/**
+ * @rideos/charts 扩展样式:雷达图 / 仪表盘 / 散点图
+ * 颜色走 @rideos/ui 的 --rideos-* token;未引入 token 时使用回退值。
+ * 轴标签与网格线复用 charts.css 的 .rideos-chart-axis-label / .rideos-chart-grid-line。
+ */
+
+/* —— 雷达图 —— */
+.rideos-chart-radar-axis {
+  stroke: var(--rideos-n300, #dee0e3);
+}
+
+.rideos-chart-radar-series {
+  fill-opacity: 0.15;
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+/* —— 仪表盘 —— */
+.rideos-chart-gauge-pointer {
+  fill: var(--rideos-n800, #2b2f36);
+}
+
+.rideos-chart-gauge-cap {
+  fill: var(--rideos-white, #fff);
+  stroke: var(--rideos-n800, #2b2f36);
+  stroke-width: 2;
+}
+
+.rideos-chart-gauge-value {
+  font-size: 24px;
+  font-weight: 600;
+  fill: var(--rideos-n900, #1f2329);
+}
+
+.rideos-chart-gauge-title {
+  font-size: 12px;
+  fill: var(--rideos-n500, #8f959e);
+}
+
+/* —— 散点图 —— */
+.rideos-chart-scatter-dot {
+  stroke: var(--rideos-white, #fff);
+  stroke-width: 1;
+  fill-opacity: 0.85;
+  transition: r 0.12s ease;
+}

@@ -1,0 +1,587 @@
+/* —— Tree 树 —— */
+.rideos-tree {
+  font-size: 13px;
+  color: var(--rideos-n900);
+}
+
+.rideos-tree-empty {
+  padding: 24px 0;
+  color: var(--rideos-n500);
+  font-size: 12px;
+  text-align: center;
+}
+
+.rideos-tree-node {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 30px;
+  border-radius: 6px;
+  padding-right: 6px;
+}
+
+.rideos-tree-node:hover {
+  background: var(--rideos-n100);
+}
+
+.rideos-tree-node.is-selected {
+  background: var(--rideos-brand-15);
+}
+
+.rideos-tree-node.is-selected .rideos-tree-title {
+  color: var(--rideos-brand);
+  font-weight: 600;
+}
+
+.rideos-tree-caret {
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border: 0;
+  background: transparent;
+  color: var(--rideos-n500);
+  font-size: 10px;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.rideos-tree-caret.is-open {
+  transform: rotate(90deg);
+}
+
+.rideos-tree-caret.is-leaf {
+  cursor: default;
+}
+
+.rideos-tree-node .rideos-checkbox {
+  gap: 0;
+}
+
+.rideos-tree-title {
+  flex: 1;
+  min-width: 0;
+  padding: 4px 6px;
+  border: 0;
+  background: transparent;
+  color: var(--rideos-n900);
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rideos-tree-node.is-disabled .rideos-tree-title {
+  color: var(--rideos-n400);
+  cursor: not-allowed;
+}
+
+/* Checkbox 半选态 */
+.rideos-checkbox-box.is-indeterminate {
+  border-color: var(--rideos-brand);
+}
+
+.rideos-checkbox-box.is-indeterminate::after {
+  content: "";
+  width: 8px;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--rideos-brand);
+}
+
+/* —— Transfer 穿梭框 —— */
+.rideos-transfer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rideos-transfer-panel {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid var(--rideos-n250);
+  border-radius: 8px;
+  background: var(--rideos-white);
+  overflow: hidden;
+}
+
+.rideos-transfer-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 38px;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--rideos-n200);
+  background: var(--rideos-n100);
+}
+
+.rideos-transfer-panel-head strong {
+  font-size: 13px;
+  color: var(--rideos-n900);
+}
+
+.rideos-transfer-panel-head small {
+  font-size: 12px;
+  color: var(--rideos-n500);
+}
+
+.rideos-transfer-panel-body {
+  overflow-y: auto;
+  padding: 6px;
+}
+
+.rideos-transfer-empty {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  min-height: 120px;
+  color: var(--rideos-n500);
+  font-size: 12px;
+}
+
+.rideos-transfer-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.rideos-transfer-actions .rideos-btn {
+  min-width: 36px;
+  padding: 0 10px;
+}
+
+/* —— Skeleton 骨架屏 —— */
+.rideos-skeleton {
+  display: flex;
+  gap: 14px;
+  width: 100%;
+}
+
+.rideos-skeleton-avatar,
+.rideos-skeleton-title,
+.rideos-skeleton-row {
+  background: var(--rideos-n200);
+  border-radius: 4px;
+}
+
+.rideos-skeleton-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+
+.rideos-skeleton-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.rideos-skeleton-title {
+  display: block;
+  width: 38%;
+  height: 16px;
+  margin-bottom: 14px;
+}
+
+.rideos-skeleton-paragraph {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rideos-skeleton-row {
+  display: block;
+  width: 100%;
+  height: 14px;
+}
+
+.rideos-skeleton.is-active .rideos-skeleton-avatar,
+.rideos-skeleton.is-active .rideos-skeleton-title,
+.rideos-skeleton.is-active .rideos-skeleton-row {
+  background: linear-gradient(
+    90deg,
+    var(--rideos-n200) 25%,
+    var(--rideos-n250) 37%,
+    var(--rideos-n200) 63%
+  );
+  background-size: 400% 100%;
+  animation: rideos-skeleton-shimmer 1.4s infinite ease;
+}
+
+@keyframes rideos-skeleton-shimmer {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+/* —— VirtualList 虚拟列表 —— */
+.rideos-virtual-list {
+  overflow-y: auto;
+  border: 1px solid var(--rideos-n250);
+  border-radius: 8px;
+  background: var(--rideos-white);
+}
+
+.rideos-virtual-list-phantom {
+  position: relative;
+  overflow: hidden;
+}
+
+.rideos-virtual-list-window {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.rideos-virtual-list-item {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--rideos-n200);
+  font-size: 13px;
+  color: var(--rideos-n900);
+  box-sizing: border-box;
+}
+
+.rideos-virtual-list-empty {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  color: var(--rideos-n500);
+  font-size: 12px;
+}
+
+/* —— Tag 标签 —— */
+.rideos-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 22px;
+  padding: 0 8px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 12px;
+  background: var(--rideos-n200);
+  color: var(--rideos-n600);
+}
+
+.rideos-tag.is-clickable {
+  cursor: pointer;
+}
+
+.rideos-tag.tone-brand { background: var(--rideos-brand-15); color: var(--rideos-brand); }
+.rideos-tag.tone-success { background: rgba(77, 176, 84, 0.12); color: #2f7a38; }
+.rideos-tag.tone-warning { background: rgba(255, 165, 30, 0.14); color: #a56c13; }
+.rideos-tag.tone-danger { background: rgba(254, 80, 66, 0.1); color: #c0342c; }
+.rideos-tag.tone-info { background: rgba(59, 130, 246, 0.1); color: #2563eb; }
+
+.rideos-tag.is-bordered { background: transparent; border-color: currentColor; }
+
+[data-rideos-theme="dark"] .rideos-tag.tone-success { color: #6fd08c; }
+[data-rideos-theme="dark"] .rideos-tag.tone-warning { color: #f5b950; }
+[data-rideos-theme="dark"] .rideos-tag.tone-danger { color: #ff8078; }
+[data-rideos-theme="dark"] .rideos-tag.tone-info { color: #7aa8f8; }
+
+.rideos-tag-close {
+  display: inline-flex;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  opacity: 0.6;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.rideos-tag-close:hover { opacity: 1; }
+
+/* —— Badge 徽标 —— */
+.rideos-badge {
+  position: relative;
+  display: inline-flex;
+}
+
+.rideos-badge-sup {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  background: var(--rideos-danger);
+  color: #fff;
+  font-size: 11px;
+  line-height: 18px;
+  font-weight: 600;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.rideos-badge-sup.is-dot {
+  min-width: 8px;
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.rideos-badge-sup.tone-brand { background: var(--rideos-brand); }
+.rideos-badge-sup.tone-success { background: var(--rideos-success); }
+.rideos-badge-sup.tone-warning { background: var(--rideos-warning); }
+.rideos-badge-sup.tone-neutral { background: var(--rideos-n400); }
+
+.rideos-badge.is-standalone .rideos-badge-sup {
+  position: static;
+  transform: none;
+}
+
+/* —— Empty 空状态 —— */
+.rideos-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 32px 16px;
+}
+
+.rideos-empty-box {
+  fill: var(--rideos-n200);
+  stroke: var(--rideos-n300);
+}
+
+.rideos-empty-fold { stroke: var(--rideos-n300); }
+.rideos-empty-shadow { fill: var(--rideos-n150); }
+
+.rideos-empty-desc {
+  margin: 0;
+  color: var(--rideos-n500);
+  font-size: 13px;
+}
+
+/* —— Avatar 头像 —— */
+.rideos-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--rideos-brand-15);
+  color: var(--rideos-brand);
+  flex: 0 0 auto;
+}
+
+.rideos-avatar.shape-circle { border-radius: 50%; }
+.rideos-avatar.shape-square { border-radius: 8px; }
+
+.rideos-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rideos-avatar-text {
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* —— Divider 分割线 —— */
+.rideos-divider {
+  display: flex;
+  align-items: center;
+  margin: 16px 0;
+  border-top: 1px solid var(--rideos-n250);
+}
+
+.rideos-divider.is-dashed { border-top-style: dashed; }
+
+.rideos-divider.has-text {
+  border-top: 0;
+  gap: 12px;
+}
+
+.rideos-divider.has-text::before,
+.rideos-divider.has-text::after {
+  content: "";
+  flex: 1;
+  border-top: inherit;
+  border-top: 1px solid var(--rideos-n250);
+}
+
+.rideos-divider.has-text.align-left::before { flex: 0 0 24px; }
+.rideos-divider.has-text.align-right::after { flex: 0 0 24px; }
+
+.rideos-divider-text {
+  color: var(--rideos-n600);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.rideos-divider-vertical {
+  display: inline-block;
+  width: 1px;
+  height: 14px;
+  margin: 0 8px;
+  vertical-align: middle;
+  background: var(--rideos-n250);
+}
+
+/* —— Progress 进度条 —— */
+.rideos-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.rideos-progress-track {
+  flex: 1;
+  min-width: 0;
+  border-radius: 100px;
+  background: var(--rideos-n200);
+  overflow: hidden;
+}
+
+.rideos-progress-bar {
+  height: 100%;
+  border-radius: 100px;
+  background: var(--rideos-brand);
+  transition: width 0.3s ease;
+}
+
+.rideos-progress.status-success .rideos-progress-bar { background: var(--rideos-success); }
+.rideos-progress.status-exception .rideos-progress-bar { background: var(--rideos-danger); }
+
+.rideos-progress-info {
+  flex: 0 0 auto;
+  min-width: 40px;
+  font-size: 12px;
+  color: var(--rideos-n600);
+  font-variant-numeric: tabular-nums;
+}
+
+.rideos-progress.status-success .rideos-progress-info { color: var(--rideos-success); }
+.rideos-progress.status-exception .rideos-progress-info { color: var(--rideos-danger); }
+
+.rideos-progress-circle {
+  position: relative;
+  display: inline-flex;
+}
+
+.rideos-progress-circle-track { stroke: var(--rideos-n200); }
+.rideos-progress-circle-bar {
+  stroke: var(--rideos-brand);
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+.rideos-progress-circle.status-success .rideos-progress-circle-bar { stroke: var(--rideos-success); }
+.rideos-progress-circle.status-exception .rideos-progress-circle-bar { stroke: var(--rideos-danger); }
+
+.rideos-progress-circle-info {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--rideos-n900);
+  font-variant-numeric: tabular-nums;
+}
+
+.rideos-progress-circle.status-success .rideos-progress-circle-info { color: var(--rideos-success); }
+.rideos-progress-circle.status-exception .rideos-progress-circle-info { color: var(--rideos-danger); }
+
+/* —— Steps 步骤条 —— */
+.rideos-steps {
+  display: flex;
+  gap: 8px;
+}
+
+.rideos-step {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+}
+
+.rideos-step.is-clickable { cursor: pointer; }
+
+.rideos-step-dot {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border: 1px solid var(--rideos-n300);
+  border-radius: 50%;
+  background: var(--rideos-white);
+  color: var(--rideos-n500);
+  font-size: 12px;
+  z-index: 1;
+}
+
+.rideos-step.is-finish .rideos-step-dot {
+  border-color: var(--rideos-brand);
+  color: var(--rideos-brand);
+  background: var(--rideos-brand-15);
+}
+
+.rideos-step.is-process .rideos-step-dot {
+  border-color: var(--rideos-brand);
+  background: var(--rideos-brand);
+  color: #fff;
+}
+
+.rideos-step.is-error .rideos-step-dot {
+  border-color: var(--rideos-danger);
+  background: var(--rideos-danger);
+  color: #fff;
+}
+
+.rideos-step-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 3px;
+  min-width: 0;
+}
+
+.rideos-step-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--rideos-n600);
+  white-space: nowrap;
+}
+
+.rideos-step.is-process .rideos-step-title,
+.rideos-step.is-finish .rideos-step-title {
+  color: var(--rideos-n900);
+}
+
+.rideos-step.is-error .rideos-step-title { color: var(--rideos-danger); }
+
+.rideos-step-desc {
+  font-size: 12px;
+  color: var(--rideos-n500);
+}
+
+.rideos-step-line {
+  position: absolute;
+  top: 13px;
+  left: 34px;
+  right: 8px;
+  height: 1px;
+  background: var(--rideos-n250);
+}
+
+.rideos-step.is-finish .rideos-step-line { background: var(--rideos-brand); }

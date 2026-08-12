@@ -1,0 +1,328 @@
+/* —— AIChat AI 对话 —— */
+.rideos-aichat {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border: 1px solid var(--rideos-n250);
+  border-radius: var(--rideos-radius-lg);
+  background: var(--rideos-white);
+  overflow: hidden;
+}
+
+.rideos-aichat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 14px;
+  border-bottom: 1px solid var(--rideos-n250);
+  background: var(--rideos-white);
+}
+
+.rideos-aichat-header-avatar {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--rideos-brand-15);
+  color: var(--rideos-brand);
+  flex: 0 0 auto;
+}
+
+.rideos-aichat-header-main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.rideos-aichat-header-main strong {
+  font-size: 14px;
+  color: var(--rideos-n900);
+}
+
+.rideos-aichat-header-main small {
+  font-size: 12px;
+  color: var(--rideos-n500);
+}
+
+.rideos-aichat-header-extra {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rideos-aichat-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 14px;
+  background: var(--rideos-n100);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rideos-aichat-empty {
+  margin: auto;
+  color: var(--rideos-n500);
+  font-size: 13px;
+  text-align: center;
+}
+
+/* —— 消息行 —— */
+.rideos-aichat-msg {
+  display: flex;
+  gap: 8px;
+  max-width: 100%;
+}
+
+.rideos-aichat-msg.is-user {
+  flex-direction: row-reverse;
+}
+
+.rideos-aichat-avatar {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  flex: 0 0 auto;
+  background: var(--rideos-brand-15);
+  color: var(--rideos-brand);
+}
+
+.rideos-aichat-msg.is-user .rideos-aichat-avatar {
+  background: var(--rideos-n250);
+  color: var(--rideos-n600);
+}
+
+.rideos-aichat-bubble-wrap {
+  min-width: 0;
+  max-width: 78%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rideos-aichat-msg.is-user .rideos-aichat-bubble-wrap {
+  align-items: flex-end;
+}
+
+.rideos-aichat-bubble {
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--rideos-n900);
+  background: var(--rideos-white);
+  border: 1px solid var(--rideos-n250);
+  border-top-left-radius: 2px;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+.rideos-aichat-msg.is-user .rideos-aichat-bubble {
+  color: var(--rideos-white);
+  background: var(--rideos-brand);
+  border-color: var(--rideos-brand);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 2px;
+}
+
+.rideos-aichat-msg.is-error .rideos-aichat-bubble {
+  border-color: rgba(254, 80, 66, 0.4);
+}
+
+.rideos-aichat-bubble code {
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: var(--rideos-n200);
+  color: var(--rideos-brand);
+  font-family: var(--rideos-font-mono);
+  font-size: 12px;
+}
+
+.rideos-aichat-msg.is-user .rideos-aichat-bubble code {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--rideos-white);
+}
+
+.rideos-aichat-code {
+  margin: 6px 0;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background: var(--rideos-n900);
+  color: var(--rideos-n200);
+  font-family: var(--rideos-font-mono);
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.rideos-aichat-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--rideos-n500);
+}
+
+.rideos-aichat-error-text {
+  color: var(--rideos-danger);
+}
+
+.rideos-aichat-retry {
+  border: 0;
+  padding: 0;
+  background: none;
+  color: var(--rideos-brand);
+  font-size: 11px;
+  cursor: pointer;
+}
+
+/* —— 打字点 / 流式光标 —— */
+.rideos-aichat-typing {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 16px;
+}
+
+.rideos-aichat-typing i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--rideos-n400);
+  animation: rideos-aichat-bounce 1.2s infinite ease-in-out;
+}
+
+.rideos-aichat-typing i:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.rideos-aichat-typing i:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes rideos-aichat-bounce {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  30% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+.rideos-aichat-caret {
+  display: inline-block;
+  width: 7px;
+  height: 14px;
+  margin-left: 2px;
+  vertical-align: -2px;
+  background: var(--rideos-brand);
+  animation: rideos-aichat-blink 0.9s steps(1) infinite;
+}
+
+@keyframes rideos-aichat-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* —— 快捷问题 —— */
+.rideos-aichat-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 14px 0;
+  background: var(--rideos-white);
+}
+
+.rideos-aichat-suggestion {
+  height: 26px;
+  padding: 0 10px;
+  border: 1px solid var(--rideos-n300);
+  border-radius: 13px;
+  background: var(--rideos-white);
+  color: var(--rideos-n600);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.rideos-aichat-suggestion:hover:not(:disabled) {
+  border-color: var(--rideos-brand-70);
+  color: var(--rideos-brand);
+}
+
+.rideos-aichat-suggestion:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* —— 输入区 —— */
+.rideos-aichat-input-bar {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--rideos-white);
+}
+
+.rideos-aichat-input {
+  flex: 1;
+  min-width: 0;
+  max-height: 120px;
+  padding: 7px 12px;
+  border: 1px solid var(--rideos-n300);
+  border-radius: 8px;
+  background: var(--rideos-white);
+  color: var(--rideos-n900);
+  font-size: 13px;
+  font-family: inherit;
+  line-height: 1.5;
+  resize: none;
+  outline: none;
+}
+
+.rideos-aichat-input:focus {
+  border-color: var(--rideos-brand);
+}
+
+.rideos-aichat-input:disabled {
+  background: var(--rideos-n100);
+  cursor: not-allowed;
+}
+
+.rideos-aichat-send {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border: 0;
+  border-radius: 8px;
+  background: var(--rideos-brand);
+  color: var(--rideos-white);
+  cursor: pointer;
+}
+
+.rideos-aichat-send:hover:not(:disabled) {
+  background: var(--rideos-brand-90);
+}
+
+.rideos-aichat-send:disabled {
+  background: var(--rideos-n300);
+  cursor: not-allowed;
+}
+
+.rideos-aichat-send.is-stop {
+  background: var(--rideos-danger);
+}

@@ -1,0 +1,12 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["vite/client"],
+    "baseUrl": ".",
+    "paths": {
+      "@rideos/ui": ["../packages/ui/src/index.ts"],
+      "@rideos/charts": ["../packages/charts/src/index.ts"]
+    }
+  },
+  "include": ["src", "vite.config.ts"]
+}

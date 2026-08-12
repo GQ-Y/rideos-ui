@@ -1,0 +1,184 @@
+/**
+ * @rideos/charts 样式
+ * 颜色走 @rideos/ui 的 --rideos-* token;未引入 token 时使用回退值。
+ */
+@import "./charts-extra.css";
+
+.rideos-chart {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: var(
+    --rideos-font-family,
+    "Microsoft YaHei",
+    "PingFang SC",
+    Helvetica,
+    Arial,
+    sans-serif
+  );
+}
+
+.rideos-chart-svg {
+  display: block;
+  flex: 1;
+  min-height: 0;
+}
+
+.rideos-chart-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  color: var(--rideos-n500, #8f959e);
+  font-size: 13px;
+}
+
+/* —— 图例 —— */
+.rideos-chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 2px 14px;
+  min-height: 26px;
+  padding: 0 8px 4px;
+}
+
+.rideos-chart-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 0;
+  border: 0;
+  background: transparent;
+  color: var(--rideos-n600, #646a73);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.rideos-chart-legend-item.disabled {
+  color: var(--rideos-n400, #bbbfc4);
+}
+
+.rideos-chart-legend-item.disabled .rideos-chart-legend-dot {
+  background: var(--rideos-n300, #dee0e3) !important;
+}
+
+.rideos-chart-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  flex: 0 0 auto;
+}
+
+/* —— 坐标轴 / 网格 —— */
+.rideos-chart-axis-label {
+  font-size: 11px;
+  fill: var(--rideos-n500, #8f959e);
+}
+
+.rideos-chart-grid-line {
+  stroke: var(--rideos-n250, #ebeaed);
+  stroke-dasharray: 3 3;
+}
+
+.rideos-chart-axis-line {
+  stroke: var(--rideos-n300, #dee0e3);
+}
+
+.rideos-chart-guide-line {
+  stroke: var(--rideos-n400, #bbbfc4);
+  stroke-dasharray: 4 3;
+}
+
+.rideos-chart-hover-band {
+  fill: var(--rideos-n200, #f5f6f7);
+  opacity: 0.6;
+}
+
+/* —— 折线 / 面积 / 柱 / 饼 —— */
+.rideos-chart-line {
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.rideos-chart-area {
+  opacity: 0.12;
+  stroke: none;
+}
+
+.rideos-chart-symbol {
+  fill: var(--rideos-white, #fff);
+  stroke-width: 2;
+  transition: r 0.12s ease;
+}
+
+.rideos-chart-bar {
+  transition: opacity 0.12s ease;
+}
+
+.rideos-chart-pie-slice {
+  stroke: var(--rideos-white, #fff);
+  stroke-width: 1.5;
+  cursor: pointer;
+  transition: opacity 0.12s ease;
+}
+
+.rideos-chart-pie-label {
+  font-size: 11px;
+  fill: var(--rideos-white, #fff);
+  pointer-events: none;
+}
+
+.rideos-chart-pie-center-value {
+  font-size: 22px;
+  font-weight: 600;
+  fill: var(--rideos-n900, #1f2329);
+}
+
+.rideos-chart-pie-center-title {
+  font-size: 12px;
+  fill: var(--rideos-n500, #8f959e);
+}
+
+/* —— 悬浮提示 —— */
+.rideos-chart-tooltip {
+  position: absolute;
+  z-index: 10;
+  min-width: 110px;
+  padding: 8px 10px;
+  border: 1px solid var(--rideos-n250, #ebeaed);
+  border-radius: 6px;
+  background: var(--rideos-white, #fff);
+  box-shadow: 0 6px 20px rgba(31, 35, 41, 0.12);
+  font-size: 12px;
+  pointer-events: none;
+}
+
+.rideos-chart-tooltip-title {
+  margin-bottom: 6px;
+  color: var(--rideos-n600, #646a73);
+}
+
+.rideos-chart-tooltip-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 20px;
+  color: var(--rideos-n800, #2b2f36);
+}
+
+.rideos-chart-tooltip-item b {
+  margin-left: auto;
+  padding-left: 16px;
+  font-weight: 600;
+}
+
+.rideos-chart-tooltip-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}

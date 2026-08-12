@@ -1,0 +1,466 @@
+/* —— 认证页布局 —— */
+.rideos-auth-layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--rideos-n150);
+}
+
+.rideos-auth-brand {
+  position: relative;
+  flex: 1 1 46%;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 48px;
+  color: rgba(255, 255, 255, 0.92);
+  background: linear-gradient(160deg, #0b3d2e 0%, #0f5a41 55%, #009a7a 130%);
+  overflow: hidden;
+}
+
+.rideos-auth-brand-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 20px;
+  letter-spacing: 0.02em;
+}
+
+.rideos-auth-logo-block {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--rideos-brand);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.rideos-auth-brand-body {
+  margin: auto 0;
+  position: relative;
+  z-index: 1;
+}
+
+.rideos-auth-brand-body h1 {
+  margin: 0 0 14px;
+  font-size: 32px;
+  line-height: 1.4;
+  font-weight: 600;
+  color: #fff;
+}
+
+.rideos-auth-brand-body p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.rideos-auth-brand-deco {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+}
+
+.rideos-auth-brand-deco.deco-1 {
+  width: 420px;
+  height: 420px;
+  right: -140px;
+  bottom: -160px;
+}
+
+.rideos-auth-brand-deco.deco-2 {
+  width: 240px;
+  height: 240px;
+  left: -80px;
+  top: 18%;
+}
+
+.rideos-auth-content {
+  flex: 1 1 54%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 24px;
+}
+
+.rideos-auth-card {
+  width: 420px;
+  max-width: 100%;
+  padding: 36px 40px;
+  border: 1px solid var(--rideos-n250);
+  border-radius: 12px;
+  background: var(--rideos-white);
+  box-shadow: 0 12px 40px rgba(11, 61, 46, 0.08);
+}
+
+.rideos-auth-footer {
+  color: var(--rideos-n500);
+  font-size: 12px;
+}
+
+@media (max-width: 960px) {
+  .rideos-auth-brand {
+    display: none;
+  }
+}
+
+/* —— 面板通用 —— */
+.rideos-auth-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.rideos-auth-title {
+  margin: 0 0 6px;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--rideos-n900);
+}
+
+.rideos-auth-subtitle {
+  margin: 0 0 18px;
+  font-size: 13px;
+  color: var(--rideos-n500);
+}
+
+.rideos-auth-title-center,
+.rideos-auth-subtitle-center {
+  text-align: center;
+}
+
+.rideos-auth-panel .rideos-tabs {
+  margin-bottom: 18px;
+}
+
+.rideos-auth-panel .rideos-form-field {
+  margin-bottom: 16px;
+}
+
+.rideos-auth-panel .rideos-input {
+  min-height: 40px;
+  border-radius: 6px;
+}
+
+.rideos-auth-error {
+  margin-bottom: 14px;
+  padding: 8px 12px;
+  border: 1px solid rgba(254, 80, 66, 0.35);
+  border-radius: 6px;
+  background: rgba(254, 80, 66, 0.08);
+  color: var(--rideos-danger);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.rideos-auth-code-row {
+  display: flex;
+  gap: 8px;
+}
+
+.rideos-auth-code-row .rideos-input {
+  flex: 1;
+}
+
+.rideos-auth-code-btn {
+  flex: 0 0 auto;
+  height: 40px;
+  min-width: 102px;
+  padding: 0 12px;
+  font-size: 13px;
+}
+
+.rideos-auth-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.rideos-auth-link {
+  border: 0;
+  padding: 0;
+  background: none;
+  color: var(--rideos-brand);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.rideos-auth-link:hover {
+  color: var(--rideos-brand-90);
+}
+
+.rideos-auth-link-text {
+  color: var(--rideos-brand);
+}
+
+.rideos-auth-submit {
+  width: 100%;
+  height: 40px;
+  border-radius: 6px;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+}
+
+.rideos-auth-switch {
+  margin: 14px 0 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--rideos-n500);
+}
+
+.rideos-auth-switch .rideos-auth-link {
+  margin-left: 4px;
+}
+
+.rideos-auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0 14px;
+  color: var(--rideos-n400);
+  font-size: 12px;
+}
+
+.rideos-auth-divider::before,
+.rideos-auth-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--rideos-n250);
+}
+
+.rideos-auth-providers {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.rideos-auth-provider {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 14px;
+  border: 1px solid var(--rideos-n300);
+  border-radius: 17px;
+  background: var(--rideos-white);
+  color: var(--rideos-n800);
+  font-size: 13px;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.rideos-auth-provider:hover {
+  border-color: var(--rideos-brand-70);
+  color: var(--rideos-brand);
+}
+
+/* —— 找回密码步骤条 —— */
+.rideos-auth-steps {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0 20px;
+}
+
+.rideos-auth-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--rideos-n500);
+}
+
+.rideos-auth-step i {
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--rideos-n300);
+  font-style: normal;
+  font-size: 11px;
+}
+
+.rideos-auth-step.is-active {
+  color: var(--rideos-brand);
+  font-weight: 600;
+}
+
+.rideos-auth-step.is-active i {
+  border-color: var(--rideos-brand);
+  background: var(--rideos-brand);
+  color: #fff;
+}
+
+.rideos-auth-step.is-done {
+  color: var(--rideos-brand);
+}
+
+.rideos-auth-step.is-done i {
+  border-color: var(--rideos-brand);
+  color: var(--rideos-brand);
+}
+
+.rideos-auth-step:not(:last-child)::after {
+  content: "";
+  width: 28px;
+  height: 1px;
+  margin-left: 8px;
+  background: var(--rideos-n250);
+}
+
+/* —— 成功态 —— */
+.rideos-auth-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 0 4px;
+  text-align: center;
+}
+
+.rideos-auth-success > .anticon {
+  font-size: 44px;
+  color: var(--rideos-success);
+}
+
+.rideos-auth-success strong {
+  font-size: 16px;
+  color: var(--rideos-n900);
+}
+
+.rideos-auth-success p {
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: var(--rideos-n500);
+}
+
+/* —— SSO —— */
+.rideos-auth-sso-badge {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 14px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: var(--rideos-brand-15);
+  color: var(--rideos-brand);
+  font-size: 28px;
+}
+
+.rideos-auth-grant-apps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.rideos-auth-grant-app {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--rideos-n250);
+  border-radius: 14px;
+  background: var(--rideos-n100);
+  overflow: hidden;
+}
+
+.rideos-auth-grant-app i {
+  font-style: normal;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--rideos-n600);
+}
+
+.rideos-auth-grant-app.is-platform {
+  background: var(--rideos-brand);
+  border-color: var(--rideos-brand);
+}
+
+.rideos-auth-grant-app.is-platform i {
+  color: #fff;
+}
+
+.rideos-auth-grant-swap {
+  color: var(--rideos-n400);
+  font-size: 16px;
+}
+
+.rideos-auth-scopes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 16px 0 20px;
+  padding: 14px;
+  border: 1px solid var(--rideos-n250);
+  border-radius: 8px;
+  background: var(--rideos-n100);
+}
+
+.rideos-auth-scopes > small {
+  color: var(--rideos-n500);
+  font-size: 12px;
+}
+
+.rideos-auth-scope {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.rideos-auth-scope > .anticon {
+  margin-top: 2px;
+  color: var(--rideos-success);
+  font-size: 14px;
+}
+
+.rideos-auth-scope-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.rideos-auth-scope-main strong {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--rideos-n900);
+}
+
+.rideos-auth-scope-main small {
+  font-size: 12px;
+  color: var(--rideos-n500);
+}
+
+.rideos-auth-grant-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.rideos-auth-grant-actions .rideos-btn {
+  flex: 1;
+  height: 40px;
+  border-radius: 6px;
+}
+
+.rideos-auth-grant-hint {
+  margin: 12px 0 0;
+  text-align: center;
+  font-size: 12px;
+  color: var(--rideos-n400);
+}
+
+/* 暗色适配:品牌屏保持墨绿,卡片阴影加深 */
+[data-rideos-theme="dark"] .rideos-auth-card {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}

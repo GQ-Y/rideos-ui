@@ -1,0 +1,380 @@
+/* —— Calendar 日历 —— */
+.rideos-calendar {
+  border: 1px solid var(--rideos-n250);
+  border-radius: var(--rideos-radius-lg);
+  background: var(--rideos-white);
+  padding: 12px 14px 14px;
+}
+
+.rideos-calendar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.rideos-calendar-head strong {
+  font-size: 15px;
+  color: var(--rideos-n900);
+}
+
+.rideos-calendar-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rideos-calendar-nav > button:not(.rideos-btn) {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--rideos-n500);
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.rideos-calendar-nav > button:not(.rideos-btn):hover {
+  background: var(--rideos-n200);
+  color: var(--rideos-brand);
+}
+
+.rideos-calendar-nav .rideos-btn {
+  height: 28px;
+  min-width: auto;
+  padding: 0 10px;
+  margin: 0 4px;
+  font-size: 12px;
+}
+
+.rideos-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.rideos-calendar-week {
+  display: grid;
+  place-items: center;
+  height: 30px;
+  color: var(--rideos-n500);
+  font-size: 12px;
+}
+
+.rideos-calendar-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  min-height: 64px;
+  padding: 6px 8px;
+  border: 1px solid transparent;
+  border-top: 2px solid var(--rideos-n200);
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  transition:
+    background 0.12s ease,
+    border-color 0.12s ease;
+}
+
+.rideos-calendar.is-compact .rideos-calendar-cell {
+  min-height: 34px;
+  align-items: center;
+  border-top-width: 1px;
+}
+
+.rideos-calendar-cell:hover {
+  background: var(--rideos-n100);
+}
+
+.rideos-calendar-cell.is-out .rideos-calendar-day {
+  color: var(--rideos-n400);
+}
+
+.rideos-calendar-cell.is-today {
+  border-top-color: var(--rideos-warning);
+}
+
+.rideos-calendar-cell.is-today .rideos-calendar-day {
+  color: var(--rideos-brand);
+  font-weight: 600;
+}
+
+.rideos-calendar-cell.is-selected {
+  border-color: var(--rideos-brand);
+  border-top-color: var(--rideos-brand);
+  background: var(--rideos-brand-15);
+}
+
+.rideos-calendar-day {
+  font-size: 13px;
+  color: var(--rideos-n900);
+}
+
+.rideos-calendar-cell-content {
+  width: 100%;
+  font-size: 11px;
+  color: var(--rideos-n600);
+  overflow: hidden;
+}
+
+/* —— TimePicker 时间选择 —— */
+.rideos-timepicker-popup {
+  position: fixed;
+  z-index: var(--rideos-z-overlay);
+  border: 1px solid var(--rideos-n250);
+  border-radius: 8px;
+  background: var(--rideos-white);
+  box-shadow: 0 8px 24px rgba(31, 35, 41, 0.14);
+  overflow: hidden;
+}
+
+.rideos-timepicker-cols {
+  display: flex;
+}
+
+.rideos-timepicker-col {
+  width: 64px;
+  height: 196px;
+  overflow-y: auto;
+  padding: 4px;
+  scrollbar-width: thin;
+}
+
+.rideos-timepicker-col + .rideos-timepicker-col {
+  border-left: 1px solid var(--rideos-n200);
+}
+
+.rideos-timepicker-cell {
+  display: block;
+  width: 100%;
+  height: 28px;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--rideos-n800);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+}
+
+.rideos-timepicker-cell:hover {
+  background: var(--rideos-n100);
+}
+
+.rideos-timepicker-cell.is-selected {
+  background: var(--rideos-brand-15);
+  color: var(--rideos-brand);
+  font-weight: 600;
+}
+
+.rideos-timepicker-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  border-top: 1px solid var(--rideos-n200);
+}
+
+.rideos-timepicker-foot .rideos-btn {
+  height: 26px;
+  min-width: auto;
+  padding: 0 10px;
+  font-size: 12px;
+}
+
+.rideos-timepicker-now {
+  border: 0;
+  padding: 2px 4px;
+  background: transparent;
+  color: var(--rideos-brand);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* —— Countdown 计时器 —— */
+.rideos-countdown {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rideos-countdown-title {
+  color: var(--rideos-n500);
+  font-size: 12px;
+}
+
+.rideos-countdown-body {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 3px;
+}
+
+.rideos-countdown-value {
+  min-width: 34px;
+  padding: 3px 6px;
+  border-radius: 6px;
+  background: var(--rideos-n900);
+  color: var(--rideos-n100);
+  font-size: 18px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  line-height: 1.3;
+}
+
+[data-rideos-theme="dark"] .rideos-countdown-value {
+  background: var(--rideos-n200);
+  color: var(--rideos-n900);
+}
+
+.rideos-countdown-sep {
+  color: var(--rideos-n500);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.rideos-countdown-unit {
+  margin: 0 2px;
+  color: var(--rideos-n600);
+  font-style: normal;
+  font-size: 13px;
+}
+
+.rideos-countdown-affix {
+  color: var(--rideos-n600);
+  font-size: 13px;
+}
+
+/* —— DatePicker / DateRangePicker 弹层月面板 —— */
+.rideos-datepicker-popup {
+  position: fixed;
+  z-index: var(--rideos-z-overlay);
+  width: 272px;
+  border: 1px solid var(--rideos-n250);
+  border-radius: 8px;
+  background: var(--rideos-white);
+  box-shadow: 0 8px 24px rgba(31, 35, 41, 0.14);
+  overflow: hidden;
+}
+
+.rideos-datepanel {
+  padding: 10px;
+}
+
+.rideos-datepanel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.rideos-datepanel-head strong {
+  font-size: 13px;
+  color: var(--rideos-n900);
+}
+
+.rideos-datepanel-head button {
+  width: 24px;
+  height: 24px;
+  display: inline-grid;
+  place-items: center;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--rideos-n500);
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.rideos-datepanel-head button:hover {
+  background: var(--rideos-n200);
+  color: var(--rideos-brand);
+}
+
+.rideos-datepanel-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.rideos-datepanel-week {
+  display: grid;
+  place-items: center;
+  height: 26px;
+  color: var(--rideos-n500);
+  font-size: 11px;
+}
+
+.rideos-datepanel-day {
+  height: 30px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--rideos-n800);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.rideos-datepanel-day:hover {
+  background: var(--rideos-brand-15);
+  color: var(--rideos-brand);
+}
+
+.rideos-datepanel-day.is-out {
+  color: var(--rideos-n400);
+}
+
+.rideos-datepanel-day.is-today {
+  box-shadow: inset 0 0 0 1px var(--rideos-brand);
+  color: var(--rideos-brand);
+}
+
+.rideos-datepanel-day.is-in-range {
+  background: var(--rideos-brand-15);
+  border-radius: 0;
+}
+
+.rideos-datepanel-day.is-selected {
+  background: var(--rideos-brand);
+  color: var(--rideos-white);
+  font-weight: 600;
+}
+
+.rideos-datepicker-foot {
+  display: flex;
+  justify-content: center;
+  padding: 6px 10px;
+  border-top: 1px solid var(--rideos-n200);
+}
+
+.rideos-datepicker-foot button {
+  border: 0;
+  padding: 2px 8px;
+  background: transparent;
+  color: var(--rideos-brand);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.rideos-datepicker-foot small {
+  color: var(--rideos-n500);
+  font-size: 12px;
+}
+
+.rideos-daterange-value {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.rideos-daterange-value .anticon {
+  color: var(--rideos-n400);
+  font-size: 11px;
+}

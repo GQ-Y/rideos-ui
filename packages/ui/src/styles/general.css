@@ -1,0 +1,363 @@
+/**
+ * RideOS-UI 通用基础组件样式
+ * Link / Space / Typography / Segmented / Statistic / Breadcrumb / Collapse / InputTag
+ * 仅使用 tokens.css 的 --rideos-* 变量,暗色主题自动生效
+ */
+
+/* —— Link 链接 —— */
+.rideos-link {
+  color: var(--rideos-brand);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.rideos-link:hover {
+  color: var(--rideos-brand-90);
+  text-decoration: underline;
+}
+
+.rideos-link.is-danger,
+.rideos-link.is-danger:hover {
+  color: var(--rideos-danger);
+}
+
+.rideos-link.is-danger:hover {
+  opacity: 0.85;
+}
+
+.rideos-link.is-disabled,
+.rideos-link.is-disabled:hover {
+  color: var(--rideos-n400);
+  text-decoration: none;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+/* —— Space 间距 —— */
+.rideos-space {
+  display: inline-flex;
+  align-items: center;
+}
+
+.rideos-space.is-vertical {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.rideos-space.is-wrap {
+  flex-wrap: wrap;
+}
+
+/* —— Typography 排版 —— */
+.rideos-typo-title {
+  margin: 0 0 12px;
+  color: var(--rideos-n900);
+  font-weight: 600;
+}
+
+.rideos-typo-title.level-1 { font-size: 28px; line-height: 38px; }
+.rideos-typo-title.level-2 { font-size: 24px; line-height: 32px; }
+.rideos-typo-title.level-3 { font-size: 20px; line-height: 28px; }
+.rideos-typo-title.level-4 { font-size: 16px; line-height: 24px; }
+.rideos-typo-title.level-5 { font-size: 14px; line-height: 22px; }
+
+.rideos-typo-text {
+  color: var(--rideos-n900);
+}
+
+.rideos-typo-text.type-secondary { color: var(--rideos-n600); }
+.rideos-typo-text.type-success { color: var(--rideos-success); }
+.rideos-typo-text.type-warning { color: var(--rideos-warning); }
+.rideos-typo-text.type-danger { color: var(--rideos-danger); }
+
+.rideos-typo-code {
+  margin: 0 2px;
+  padding: 1px 6px;
+  border: 1px solid var(--rideos-n250);
+  border-radius: var(--rideos-radius);
+  background: var(--rideos-n150);
+  font-family: var(--rideos-font-mono);
+  font-size: 0.9em;
+}
+
+.rideos-typo-paragraph {
+  margin: 0 0 12px;
+  color: var(--rideos-n900);
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.rideos-typo-paragraph.is-ellipsis .rideos-typo-paragraph-content {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--rideos-typo-clamp, 1);
+  overflow: hidden;
+}
+
+.rideos-typo-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 8px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--rideos-brand);
+  font-size: 13px;
+  vertical-align: baseline;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.rideos-typo-copy:hover {
+  color: var(--rideos-brand-90);
+}
+
+.rideos-typo-copy.is-copied,
+.rideos-typo-copy.is-copied:hover {
+  color: var(--rideos-success);
+}
+
+/* —— Segmented 分段控制器 —— */
+.rideos-segmented {
+  display: inline-flex;
+  gap: 2px;
+  padding: 2px;
+  border-radius: var(--rideos-radius);
+  background: var(--rideos-n200);
+}
+
+.rideos-segmented.is-block {
+  display: flex;
+  width: 100%;
+}
+
+.rideos-segmented.is-block .rideos-segmented-item {
+  flex: 1;
+}
+
+.rideos-segmented-item {
+  height: 26px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: var(--rideos-radius);
+  background: transparent;
+  color: var(--rideos-n600);
+  font-size: 13px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.rideos-segmented-item:hover:not(:disabled):not(.is-active) {
+  color: var(--rideos-n900);
+}
+
+.rideos-segmented-item.is-active {
+  background: var(--rideos-white);
+  color: var(--rideos-n900);
+  font-weight: 500;
+  box-shadow: 0 0 0 1px var(--rideos-n250), 0 1px 3px var(--rideos-brand-15);
+}
+
+.rideos-segmented-item:disabled {
+  color: var(--rideos-n400);
+  cursor: not-allowed;
+}
+
+.rideos-segmented.is-small .rideos-segmented-item {
+  height: 22px;
+  padding: 0 8px;
+  font-size: 12px;
+}
+
+/* —— Statistic 统计数值 —— */
+.rideos-statistic {
+  display: inline-block;
+}
+
+.rideos-statistic-title {
+  margin-bottom: 4px;
+  color: var(--rideos-n600);
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.rideos-statistic-value {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  color: var(--rideos-n900);
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.rideos-statistic-prefix,
+.rideos-statistic-suffix {
+  color: var(--rideos-n600);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* —— Breadcrumb 面包屑 ——
+   根节点复用既有 .rideos-breadcrumb 容器类(components.css),
+   此处仅定义子元素样式,不覆写根类,避免影响 PageHeader 内的简单面包屑 */
+.rideos-breadcrumb-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--rideos-n600);
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.rideos-breadcrumb-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rideos-breadcrumb-link {
+  color: var(--rideos-n600);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.rideos-breadcrumb-link:hover {
+  color: var(--rideos-brand);
+}
+
+.rideos-breadcrumb-text {
+  color: var(--rideos-n600);
+}
+
+.rideos-breadcrumb-current {
+  color: var(--rideos-n900);
+  font-weight: 500;
+}
+
+.rideos-breadcrumb-sep {
+  color: var(--rideos-n400);
+}
+
+/* —— Collapse 折叠面板 —— */
+.rideos-collapse {
+  border: 1px solid var(--rideos-n250);
+  border-radius: var(--rideos-radius-lg);
+  background: var(--rideos-white);
+  overflow: hidden;
+}
+
+.rideos-collapse-panel + .rideos-collapse-panel {
+  border-top: 1px solid var(--rideos-n250);
+}
+
+.rideos-collapse-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 11px 14px;
+  border: 0;
+  background: transparent;
+  color: var(--rideos-n900);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.rideos-collapse-header:hover:not(:disabled) {
+  background: var(--rideos-n100);
+}
+
+.rideos-collapse-header:disabled {
+  color: var(--rideos-n400);
+  cursor: not-allowed;
+}
+
+.rideos-collapse-arrow {
+  color: var(--rideos-n500);
+  font-size: 12px;
+  transition: transform 0.2s ease;
+}
+
+.rideos-collapse-header:disabled .rideos-collapse-arrow {
+  color: var(--rideos-n400);
+}
+
+.rideos-collapse-panel.is-open .rideos-collapse-arrow {
+  transform: rotate(90deg);
+}
+
+.rideos-collapse-label {
+  flex: 1;
+}
+
+.rideos-collapse-body {
+  padding: 2px 14px 14px 34px;
+  color: var(--rideos-n600);
+  font-size: 13px;
+  line-height: 20px;
+}
+
+/* —— InputTag 标签输入 —— */
+.rideos-inputtag {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  min-height: var(--rideos-control-h);
+  padding: 3px 10px;
+  border: 1px solid var(--rideos-n300);
+  border-radius: var(--rideos-radius);
+  background: var(--rideos-white);
+  cursor: text;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.rideos-inputtag:hover:not(.is-disabled) {
+  border-color: var(--rideos-brand-70);
+}
+
+.rideos-inputtag:focus-within {
+  border-color: var(--rideos-brand);
+  box-shadow: 0 0 0 2px var(--rideos-brand-15);
+}
+
+.rideos-inputtag.is-disabled {
+  background: var(--rideos-n100);
+  cursor: not-allowed;
+}
+
+.rideos-inputtag-input {
+  flex: 1;
+  min-width: 60px;
+  min-height: 22px;
+  padding: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--rideos-n900);
+  font: inherit;
+  font-size: 13px;
+}
+
+.rideos-inputtag-input::placeholder {
+  color: var(--rideos-n400);
+}
+
+.rideos-inputtag.is-disabled .rideos-inputtag-input {
+  color: var(--rideos-n500);
+  cursor: not-allowed;
+}
