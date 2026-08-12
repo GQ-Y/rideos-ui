@@ -4,8 +4,8 @@ RideOS 企业级 React PC 组件库,视觉对齐 Go-UI 设计语言(品牌色 `#
 
 | 包               | 说明                                                          | 产物             |
 | ---------------- | ------------------------------------------------------------- | ---------------- |
-| `@rideos/ui`     | 基础与业务组件(后台壳层、列表页、表单、弹层、AI 对话、浮窗等) | ESM + d.ts + CSS |
-| `@rideos/charts` | 图表组件(折线/曲线/柱状/饼图),纯 SVG 零第三方依赖             | ESM + d.ts + CSS |
+| `@rideos-ai/ui`     | 基础与业务组件(后台壳层、列表页、表单、弹层、AI 对话、浮窗等) | ESM + d.ts + CSS |
+| `@rideos-ai/charts` | 图表组件(折线/曲线/柱状/饼图),纯 SVG 零第三方依赖             | ESM + d.ts + CSS |
 
 ## 特性
 
@@ -22,7 +22,7 @@ RideOS 企业级 React PC 组件库,视觉对齐 Go-UI 设计语言(品牌色 `#
 
 ```bash
 # npm 公共 registry 发布后
-pnpm add @rideos/ui @rideos/charts
+pnpm add @rideos-ai/ui @rideos-ai/charts
 # 或 npm i / yarn add
 
 # peer 依赖
@@ -37,12 +37,12 @@ pnpm add react react-dom @ant-design/icons
 
 ```tsx
 // main.tsx
-import "@rideos/ui/styles.css";
-import "@rideos/charts/styles.css"; // 用到图表时引入
+import "@rideos-ai/ui/styles.css";
+import "@rideos-ai/charts/styles.css"; // 用到图表时引入
 
 // App.tsx
-import { Button, PageCard, PageHeader, StatusBadge } from "@rideos/ui";
-import { LineChart } from "@rideos/charts";
+import { Button, PageCard, PageHeader, StatusBadge } from "@rideos-ai/ui";
+import { LineChart } from "@rideos-ai/charts";
 
 export function App() {
   return (
@@ -67,7 +67,7 @@ export function App() {
 ### 图表
 
 ```tsx
-import { BarChart, LineChart, PieChart } from "@rideos/charts";
+import { BarChart, LineChart, PieChart } from "@rideos-ai/charts";
 
 // 折线 / 曲线(smooth)/ 面积(area)
 <LineChart categories={week} series={[{ name: "GMV", data: gmv }]} smooth area />
@@ -84,7 +84,7 @@ import { BarChart, LineChart, PieChart } from "@rideos/charts";
 ### 智能客服(AIChat + FloatWidget)
 
 ```tsx
-import { AIChat, FloatWidget } from "@rideos/ui";
+import { AIChat, FloatWidget } from "@rideos-ai/ui";
 
 <FloatWidget position="bottom-right" badge={1} panelTitle="在线客服">
   <AIChat
@@ -103,7 +103,7 @@ import { AIChat, FloatWidget } from "@rideos/ui";
 ### 认证页(登录 / 注册 / SSO)
 
 ```tsx
-import { AuthLayout, LoginForm } from "@rideos/ui";
+import { AuthLayout, LoginForm } from "@rideos-ai/ui";
 
 <AuthLayout slogan="集团级出行运营平台" footer="© 2026 RideOS">
   <LoginForm
@@ -121,7 +121,7 @@ import { AuthLayout, LoginForm } from "@rideos/ui";
 
 ## 组件一览
 
-**@rideos/ui**
+**@rideos-ai/ui**
 
 | 分类      | 组件                                                                                                                                                                                                                   |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -140,7 +140,7 @@ import { AuthLayout, LoginForm } from "@rideos/ui";
 | 领域      | GeoFenceEditor                                                                                                                                                                                                         |
 | 工具      | cx · setRideosTheme · useFloatingPosition                                                                                                                                                                              |
 
-**@rideos/charts**:LineChart · BarChart · PieChart · RadarChart · GaugeChart · ScatterChart
+**@rideos-ai/charts**:LineChart · BarChart · PieChart · RadarChart · GaugeChart · ScatterChart
 
 组件规划(对标 Element Plus / Ant Design)已全量交付:基础组件 99 个 + 图表 6 个;分阶段路线图见团队建设方案文档。
 
@@ -159,7 +159,7 @@ import { AuthLayout, LoginForm } from "@rideos/ui";
 也可使用内置工具函数:
 
 ```tsx
-import { setRideosTheme, toggleRideosTheme, getRideosTheme } from "@rideos/ui";
+import { setRideosTheme, toggleRideosTheme, getRideosTheme } from "@rideos-ai/ui";
 
 setRideosTheme("light"); // 浅色
 setRideosTheme("dark"); // 暗色
@@ -169,7 +169,7 @@ toggleRideosTheme(); // 按 墨绿 → 浅色 → 暗色 循环,返回切换后�
 
 ### 品牌换肤
 
-Token 集中在 `@rideos/ui/tokens.css`,业务项目覆盖 CSS 变量即可换肤,禁止在业务侧复制修改样式:
+Token 集中在 `@rideos-ai/ui/tokens.css`,业务项目覆盖 CSS 变量即可换肤,禁止在业务侧复制修改样式:
 
 ```css
 :root {
@@ -187,7 +187,7 @@ pnpm dev              # 启动 playground 演示站(http://localhost:5173)
 pnpm test             # 全部单元测试(Vitest + Testing Library)
 pnpm typecheck        # 全仓类型检查
 pnpm lint             # ESLint
-pnpm build            # 构建 @rideos/* 全部包
+pnpm build            # 构建 @rideos-ai/* 全部包
 pnpm verify           # CI 全门禁 + 独立 tarball 的 React 18/19 消费验证
 pnpm gen MyComponent  # 组件脚手架:生成目录/测试/导出模板
 ```
@@ -196,8 +196,8 @@ pnpm gen MyComponent  # 组件脚手架:生成目录/测试/导出模板
 
 ```text
 ├── packages/
-│   ├── ui/            # @rideos/ui     组件源码 src/components/<Name>/
-│   └── charts/        # @rideos/charts 图表源码
+│   ├── ui/            # @rideos-ai/ui     组件源码 src/components/<Name>/
+│   └── charts/        # @rideos-ai/charts 图表源码
 ├── playground/        # 本地演示站(壳层 + 图表 + AI 对话 + 客服浮窗)
 ├── scripts/gen.mjs    # 组件脚手架
 ├── .github/workflows/ # CI:lint → typecheck → test → build

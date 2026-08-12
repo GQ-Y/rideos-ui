@@ -11,8 +11,8 @@ import {
   PermissionProvider,
   SearchSelect,
   Switch,
-} from "@rideos/ui";
-import type { SearchSelectOption } from "@rideos/ui";
+} from "@rideos-ai/ui";
+import type { SearchSelectOption } from "@rideos-ai/ui";
 import { DemoRow, DemoSection } from "./DemoSection";
 
 const ALL_DRIVERS: SearchSelectOption[] = [

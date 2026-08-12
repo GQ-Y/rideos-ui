@@ -1,4 +1,4 @@
-import { Button, PageCard, PageHeader, StatStrip } from "@rideos/ui";
+import { Button, PageCard, PageHeader, StatStrip } from "@rideos-ai/ui";
 
 const KIT_LINKS: Array<{ path: string; title: string; desc: string }> = [
   { path: "/kit/base", title: "基础组件", desc: "Button · Link · Typography · Tag · Badge · Segmented · Statistic 等" },
@@ -34,8 +34,8 @@ export function HomePage({ onNavigate }: { onNavigate: (path: string) => void })
       />
       <StatStrip
         items={[
-          { key: "ui", label: "@rideos/ui 组件", value: "24", hint: "含 AIChat / FloatWidget" },
-          { key: "charts", label: "@rideos/charts 图表", value: "3", hint: "折线/柱状/饼图" },
+          { key: "ui", label: "@rideos-ai/ui 组件", value: "24", hint: "含 AIChat / FloatWidget" },
+          { key: "charts", label: "@rideos-ai/charts 图表", value: "3", hint: "折线/柱状/饼图" },
           { key: "tests", label: "单元测试", value: "42", hint: "全部通过" },
           { key: "ts", label: "TypeScript", value: "100%", hint: "strict 模式" },
         ]}

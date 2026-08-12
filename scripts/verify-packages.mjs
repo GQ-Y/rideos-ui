@@ -89,8 +89,8 @@ async function writeConsumer(reactMajor, uiTarball, chartsTarball) {
         scripts: { typecheck: "tsc --noEmit", build: "vite build", ssr: "node ssr.mjs" },
         dependencies: {
           "@ant-design/icons": "6.3.2",
-          "@rideos/charts": relativeArtifact(chartsTarball),
-          "@rideos/ui": relativeArtifact(uiTarball),
+          "@rideos-ai/charts": relativeArtifact(chartsTarball),
+          "@rideos-ai/ui": relativeArtifact(uiTarball),
           react: reactMajor === 18 ? "18.3.1" : "19.2.8",
           "react-dom": reactMajor === 18 ? "18.3.1" : "19.2.8",
         },
@@ -139,10 +139,10 @@ async function writeConsumer(reactMajor, uiTarball, chartsTarball) {
     path.join(consumer, "src", "main.tsx"),
     `import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "@rideos/ui/styles.css";
-import "@rideos/charts/styles.css";
-import { Button, PageCard } from "@rideos/ui";
-import { LineChart } from "@rideos/charts";
+import "@rideos-ai/ui/styles.css";
+import "@rideos-ai/charts/styles.css";
+import { Button, PageCard } from "@rideos-ai/ui";
+import { LineChart } from "@rideos-ai/charts";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -158,8 +158,8 @@ createRoot(document.getElementById("root")!).render(
     path.join(consumer, "ssr.mjs"),
     `import React from "react";
 import { renderToString } from "react-dom/server";
-import { Button } from "@rideos/ui";
-import { LineChart } from "@rideos/charts";
+import { Button } from "@rideos-ai/ui";
+import { LineChart } from "@rideos-ai/charts";
 
 const button = renderToString(React.createElement(Button, null, "SSR"));
 const chart = renderToString(React.createElement(LineChart, {

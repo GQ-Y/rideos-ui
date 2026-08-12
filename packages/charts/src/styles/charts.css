@@ -1,6 +1,6 @@
 /**
- * @rideos/charts 样式
- * 颜色走 @rideos/ui 的 --rideos-* token;未引入 token 时使用回退值。
+ * @rideos-ai/charts 样式
+ * 颜色走 @rideos-ai/ui 的 --rideos-* token;未引入 token 时使用回退值。
  */
 @import "./charts-extra.css";
 

@@ -1,5 +1,5 @@
-import { GeoFenceEditor, PageCard, PageHeader } from "@rideos/ui";
-import type { GeoFence } from "@rideos/ui";
+import { GeoFenceEditor, PageCard, PageHeader } from "@rideos-ai/ui";
+import type { GeoFence } from "@rideos-ai/ui";
 
 const FENCES: GeoFence[] = [
   {

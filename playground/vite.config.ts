@@ -8,19 +8,19 @@ export default defineConfig({
   resolve: {
     alias: [
       {
-        find: "@rideos/ui/styles.css",
+        find: "@rideos-ai/ui/styles.css",
         replacement: fileURLToPath(new URL("../packages/ui/src/styles/index.css", import.meta.url)),
       },
       {
-        find: "@rideos/charts/styles.css",
+        find: "@rideos-ai/charts/styles.css",
         replacement: fileURLToPath(new URL("../packages/charts/src/styles/charts.css", import.meta.url)),
       },
       {
-        find: "@rideos/ui",
+        find: "@rideos-ai/ui",
         replacement: fileURLToPath(new URL("../packages/ui/src/index.ts", import.meta.url)),
       },
       {
-        find: "@rideos/charts",
+        find: "@rideos-ai/charts",
         replacement: fileURLToPath(new URL("../packages/charts/src/index.ts", import.meta.url)),
       },
     ],

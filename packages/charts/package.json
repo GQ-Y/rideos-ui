@@ -1,5 +1,5 @@
 {
-  "name": "@rideos/charts",
+  "name": "@rideos-ai/charts",
   "version": "0.3.0",
   "description": "RideOS 图表组件库:折线图/曲线图/柱状图/饼图(纯 SVG,零依赖)",
   "repository": {

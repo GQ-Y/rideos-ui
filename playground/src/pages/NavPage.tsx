@@ -20,7 +20,7 @@ import {
   PageHeader,
   Row,
   Switch,
-} from "@rideos/ui";
+} from "@rideos-ai/ui";
 import { DemoRow, DemoSection } from "./DemoSection";
 
 const MENU_ITEMS = [

@@ -7,8 +7,8 @@ import {
   PageCard,
   PageHeader,
   TimePicker,
-} from "@rideos/ui";
-import type { DateRange } from "@rideos/ui";
+} from "@rideos-ai/ui";
+import type { DateRange } from "@rideos-ai/ui";
 import { DemoRow, DemoSection } from "./DemoSection";
 
 const EVENTS: Record<string, string> = {};

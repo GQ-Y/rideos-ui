@@ -113,10 +113,10 @@ importers:
       '@ant-design/icons':
         specifier: ^6.3.2
         version: 6.3.2(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@rideos/charts':
+      '@rideos-ai/charts':
         specifier: workspace:*
         version: link:../packages/charts
-      '@rideos/ui':
+      '@rideos-ai/ui':
         specifier: workspace:*
         version: link:../packages/ui
       react:

@@ -1,4 +1,4 @@
-import { AIChat, PageCard, PageHeader } from "@rideos/ui";
+import { AIChat, PageCard, PageHeader } from "@rideos-ai/ui";
 import { useMockChat } from "../mockChat";
 
 export function AIChatPage() {

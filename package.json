@@ -15,8 +15,8 @@
   },
   "scripts": {
     "dev": "pnpm --filter rideos-playground dev",
-    "build": "pnpm --filter \"@rideos/*\" build",
-    "test": "pnpm --filter \"@rideos/*\" test",
+    "build": "pnpm --filter \"@rideos-ai/*\" build",
+    "test": "pnpm --filter \"@rideos-ai/*\" test",
     "typecheck": "pnpm -r typecheck",
     "lint": "eslint .",
     "verify": "pnpm lint && pnpm typecheck && pnpm test && pnpm verify:package && pnpm --filter rideos-playground build",

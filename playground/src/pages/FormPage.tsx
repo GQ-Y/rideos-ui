@@ -19,8 +19,8 @@ import {
   TreeSelect,
   Upload,
   useForm,
-} from "@rideos/ui";
-import type { UploadRequestOptions } from "@rideos/ui";
+} from "@rideos-ai/ui";
+import type { UploadRequestOptions } from "@rideos-ai/ui";
 import { DemoRow, DemoSection } from "./DemoSection";
 
 const REGION_OPTIONS = [

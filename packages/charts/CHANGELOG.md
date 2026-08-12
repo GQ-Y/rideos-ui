@@ -1,4 +1,4 @@
-# @rideos/charts
+# @rideos-ai/charts
 
 ## 0.3.0
 

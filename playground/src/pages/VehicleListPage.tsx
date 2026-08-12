@@ -8,8 +8,8 @@ import {
   PageHeader,
   StatStrip,
   StatusBadge,
-} from "@rideos/ui";
-import type { FilterFieldValue } from "@rideos/ui";
+} from "@rideos-ai/ui";
+import type { FilterFieldValue } from "@rideos-ai/ui";
 
 const STATUS_TONES: Record<string, "success" | "warning" | "danger"> = {
   运营中: "success",

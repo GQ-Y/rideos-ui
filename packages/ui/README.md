@@ -1,11 +1,11 @@
-# @rideos/ui
+# @rideos-ai/ui
 
 RideOS 企业级 React PC 组件库，提供后台壳层、页面布局、表单、数据展示、反馈、认证、权限和 AI 对话组件。
 
 ## 安装
 
 ```bash
-npm install @rideos/ui react react-dom @ant-design/icons
+npm install @rideos-ai/ui react react-dom @ant-design/icons
 ```
 
 支持 React 18 和 React 19，包格式为 ESM，并随包提供 TypeScript 类型声明。
@@ -13,8 +13,8 @@ npm install @rideos/ui react react-dom @ant-design/icons
 ## 使用
 
 ```tsx
-import "@rideos/ui/styles.css";
-import { Button, PageCard, PageHeader } from "@rideos/ui";
+import "@rideos-ai/ui/styles.css";
+import { Button, PageCard, PageHeader } from "@rideos-ai/ui";
 
 export function Example() {
   return (
@@ -29,7 +29,7 @@ export function Example() {
 只需要 Design Token 时可以导入：
 
 ```ts
-import "@rideos/ui/tokens.css";
+import "@rideos-ai/ui/tokens.css";
 ```
 
 ## License

@@ -54,7 +54,7 @@
   --rideos-z-float: 1100;
   --rideos-z-overlay: 1200;
 
-  /* 图表分类色板(@rideos/charts 与业务图表共用) */
+  /* 图表分类色板(@rideos-ai/charts 与业务图表共用) */
   --rideos-chart-1: #009a7a;
   --rideos-chart-2: #3b82f6;
   --rideos-chart-3: #ffa51e;

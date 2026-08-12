@@ -1,6 +1,6 @@
 /**
- * @rideos/charts — RideOS 图表组件库(纯 SVG,零第三方依赖)
- * 使用前请引入样式:import "@rideos/charts/styles.css"
+ * @rideos-ai/charts — RideOS 图表组件库(纯 SVG,零第三方依赖)
+ * 使用前请引入样式:import "@rideos-ai/charts/styles.css"
  */
 export { LineChart } from "./LineChart";
 export type { LineChartProps } from "./LineChart";

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import type { AIChatMessage } from "@rideos/ui";
+import type { AIChatMessage } from "@rideos-ai/ui";
 
 let seed = 0;
 const nextId = () => `msg-${Date.now()}-${(seed += 1)}`;
@@ -17,7 +17,7 @@ function pickReply(question: string): string {
     return "电子围栏在「系统设置 → 围栏管理」中维护,支持多边形绘制、启停与生效时段配置。绘制完成后记得点击「保存」。";
   }
   if (question.includes("接入") || question.includes("安装")) {
-    return "接入很简单:\n```bash\npnpm add @rideos/ui @rideos/charts\n```\n然后在入口引入样式:\n```js\nimport \"@rideos/ui/styles.css\";\nimport \"@rideos/charts/styles.css\";\n```\n即可按需导入组件使用。";
+    return "接入很简单:\n```bash\npnpm add @rideos-ai/ui @rideos-ai/charts\n```\n然后在入口引入样式:\n```js\nimport \"@rideos-ai/ui/styles.css\";\nimport \"@rideos-ai/charts/styles.css\";\n```\n即可按需导入组件使用。";
   }
   return `已收到你的问题:「${question}」。\n这是演示环境的模拟回复,展示 AIChat 的流式输出效果。你可以试试问「如何退款」「围栏怎么配置」或「如何接入组件库」。`;
 }

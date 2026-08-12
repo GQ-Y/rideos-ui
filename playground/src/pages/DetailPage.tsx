@@ -6,7 +6,7 @@ import {
   DetailLayout,
   PageHeader,
   Timeline,
-} from "@rideos/ui";
+} from "@rideos-ai/ui";
 
 export function DetailPage({
   onBack,
