@@ -28,6 +28,7 @@ export default defineConfig({
         "react/jsx-dev-runtime",
         "react-dom/client",
         "@ant-design/icons",
+        /^@tiptap\//,
       ],
     },
     emptyOutDir: true,

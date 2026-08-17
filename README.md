@@ -12,6 +12,7 @@ RideOS 企业级 React PC 组件库,视觉对齐 Go-UI 设计语言(品牌色 `#
 - **开箱即用的后台壳层**:AppShell(深色侧栏 + 顶栏 + 多页签)+ 列表页/详情页组件组合
 - **图表**:LineChart(折线/平滑曲线/面积)、BarChart(分组/堆叠)、PieChart(饼/环形),图例开关、悬浮提示、自适应宽度
 - **AI 能力**:AIChat 对话组件(流式输出、打字指示、失败重试、快捷问题、代码块渲染)+ FloatWidget 四角浮窗,组合即得智能客服
+- **内容编辑**:RichTextEditor 提供格式、列表、链接、图片、表格、颜色、代码块、全屏、字数统计与只读预览
 - **表单控件**:Input / Textarea / Select / Checkbox 统一样式(Select 为自定义下拉面板,支持键盘导航与清空)
 - **认证页套件**:AuthLayout 品牌布局 + 登录(账号/验证码)/注册/找回密码(三步)/SSO 单点登录/SSO 授权确认,五页开箱即用
 - **TypeScript**:严格模式,全部组件导出 Props 类型
@@ -134,6 +135,7 @@ import { AuthLayout, LoginForm } from "@rideos-ai/ui";
 | 日期时间  | DatePicker · DateRangePicker · Calendar · TimePicker · Countdown                                                                                                                                                       |
 | 反馈/弹层 | Message · Notification · Alert · Tooltip · Popover · Popconfirm · Spin · Result · Modal · Drawer · FloatWidget · Tour                                                                                                  |
 | 表单      | Form/FormItem/useForm · Input · InputNumber · InputTag · Textarea · Select · AutoComplete · Cascader · TreeSelect · Checkbox · Radio · Switch · Slider · Rate · Segmented · Upload · ColorPicker · Mention · FormField |
+| 内容编辑  | RichTextEditor（HTML/JSON · 图片 · 表格 · 任务列表 · 全屏 · 字数统计）                                                                                                                                                |
 | 业务 Pro  | SearchSelect · ImportExport · PermissionGuard/PermissionProvider/usePermission                                                                                                                                         |
 | 认证      | AuthLayout · LoginForm · RegisterForm · ResetPasswordForm · SsoLoginPanel · SsoAuthorizePanel                                                                                                                          |
 | AI        | AIChat                                                                                                                                                                                                                 |
@@ -142,7 +144,7 @@ import { AuthLayout, LoginForm } from "@rideos-ai/ui";
 
 **@rideos-ai/charts**:LineChart · BarChart · PieChart · RadarChart · GaugeChart · ScatterChart
 
-组件规划(对标 Element Plus / Ant Design)已全量交付:基础组件 99 个 + 图表 6 个;分阶段路线图见团队建设方案文档。
+组件规划(对标 Element Plus / Ant Design)已全量交付:基础组件 100 个 + 图表 6 个;分阶段路线图见团队建设方案文档。
 
 ## 主题定制
 

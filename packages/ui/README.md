@@ -1,6 +1,6 @@
 # @rideos-ai/ui
 
-RideOS 企业级 React PC 组件库，提供后台壳层、页面布局、表单、数据展示、反馈、认证、权限和 AI 对话组件。
+RideOS 企业级 React PC 组件库，提供后台壳层、页面布局、表单、数据展示、反馈、认证、权限、富文本和 AI 对话组件。
 
 ## 安装
 
@@ -31,6 +31,28 @@ export function Example() {
 ```ts
 import "@rideos-ai/ui/tokens.css";
 ```
+
+### 富文本编辑器
+
+```tsx
+import { useState } from "react";
+import { RichTextEditor } from "@rideos-ai/ui";
+
+export function ArticleEditor() {
+  const [html, setHtml] = useState("<h2>运营公告</h2><p>请输入正文</p>");
+
+  return (
+    <RichTextEditor
+      value={html}
+      onChange={setHtml}
+      maxCharacters={8000}
+      onImageUpload={async (file) => uploadToObjectStorage(file)}
+    />
+  );
+}
+```
+
+`RichTextEditor` 包含标题、基础格式、列表、任务列表、链接、图片、表格、对齐、颜色、高亮、代码块、撤销重做、全屏、字符统计和只读模式。未提供 `onImageUpload` 时，本地图片会转为 data URL；生产环境建议接入对象存储，并在服务端持久化 HTML 前执行白名单清洗。
 
 ## License
 

@@ -141,13 +141,14 @@ async function writeConsumer(reactMajor, uiTarball, chartsTarball) {
 import { createRoot } from "react-dom/client";
 import "@rideos-ai/ui/styles.css";
 import "@rideos-ai/charts/styles.css";
-import { Button, PageCard } from "@rideos-ai/ui";
+import { Button, PageCard, RichTextEditor } from "@rideos-ai/ui";
 import { LineChart } from "@rideos-ai/charts";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <PageCard>
       <Button variant="primary">Package smoke test</Button>
+      <RichTextEditor defaultValue="<p>Package editor smoke test</p>" minHeight={120} />
       <LineChart categories={["A", "B"]} series={[{ name: "S", data: [1, 2] }]} />
     </PageCard>
   </StrictMode>,
@@ -158,17 +159,24 @@ createRoot(document.getElementById("root")!).render(
     path.join(consumer, "ssr.mjs"),
     `import React from "react";
 import { renderToString } from "react-dom/server";
-import { Button } from "@rideos-ai/ui";
+import { Button, RichTextEditor } from "@rideos-ai/ui";
 import { LineChart } from "@rideos-ai/charts";
 
 const button = renderToString(React.createElement(Button, null, "SSR"));
+const richText = renderToString(React.createElement(RichTextEditor, {
+  value: "<p>SSR editor</p>",
+  readOnly: true,
+  toolbar: false,
+}));
 const chart = renderToString(React.createElement(LineChart, {
   categories: ["A"],
   series: [{ name: "S", data: [1] }],
   width: 400,
   height: 200,
 }));
-if (!button.includes("SSR") || !chart.includes("svg")) throw new Error("SSR smoke test failed");
+if (!button.includes("SSR") || !richText.includes("rideos-richtext-editor") || !chart.includes("svg")) {
+  throw new Error("SSR smoke test failed");
+}
 console.log("SSR smoke test passed");
 `,
   );

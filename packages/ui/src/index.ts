@@ -65,6 +65,7 @@ export * from "./components/Radio";
 export * from "./components/Rate";
 export * from "./components/ResourceListPage";
 export * from "./components/Result";
+export * from "./components/RichTextEditor";
 export * from "./components/Scrollbar";
 export * from "./components/SearchSelect";
 export * from "./components/Segmented";

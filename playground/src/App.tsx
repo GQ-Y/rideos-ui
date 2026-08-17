@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import type { ComponentType } from "react";
 import {
   AppstoreOutlined,
@@ -39,6 +39,11 @@ import { HomePage } from "./pages/HomePage";
 import { ResourcePage } from "./pages/ResourcePage";
 import { VehicleListPage } from "./pages/VehicleListPage";
 
+const RichTextPage = lazy(async () => {
+  const module = await import("./pages/RichTextPage");
+  return { default: module.RichTextPage };
+});
+
 /* ---------------- 菜单 ---------------- */
 
 interface MenuChild {
@@ -64,6 +69,7 @@ const MENU_ITEMS: MenuItem[] = [
     children: [
       { label: "基础组件", path: "/kit/base" },
       { label: "表单与校验", path: "/kit/form" },
+      { label: "富文本编辑器", path: "/kit/richtext" },
       { label: "反馈与弹层", path: "/kit/feedback" },
       { label: "数据展示", path: "/kit/data" },
       { label: "导航与布局", path: "/kit/nav" },
@@ -270,6 +276,21 @@ export function App() {
       break;
     case "/kit/form":
       page = <FormPage />;
+      break;
+    case "/kit/richtext":
+      page = (
+        <Suspense
+          fallback={
+            <PageCard>
+              <p style={{ margin: 0, color: "var(--rideos-n500)", fontSize: 13 }}>
+                正在加载富文本编辑器…
+              </p>
+            </PageCard>
+          }
+        >
+          <RichTextPage />
+        </Suspense>
+      );
       break;
     case "/kit/nav":
       page = <NavPage />;
