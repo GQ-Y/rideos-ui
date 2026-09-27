@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { createPortal } from "react-dom";
 import { CloseOutlined } from "@ant-design/icons";
 import { Button } from "../Button";
 
@@ -21,8 +22,8 @@ export function Modal({
   width = 440,
   danger,
 }: ModalProps) {
-  if (!open) return null;
-  return (
+  if (!open || typeof document === "undefined") return null;
+  return createPortal(
     <div className="rideos-modal-root" role="presentation">
       <button type="button" className="rideos-modal-mask" aria-label="关闭" onClick={onClose} />
       <div className="rideos-modal" style={{ width }} role="dialog" aria-modal="true">
@@ -44,6 +45,7 @@ export function Modal({
           )}
         </footer>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
