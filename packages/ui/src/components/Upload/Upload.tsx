@@ -139,6 +139,7 @@ export function Upload({
   }
 
   function remove(file: UploadFile) {
+    if (disabled || file.status === "uploading") return;
     update(listRef.current.filter((item) => item.uid !== file.uid));
     onRemove?.(file);
   }
@@ -221,6 +222,7 @@ export function Upload({
                 type="button"
                 className="rideos-upload-item-remove"
                 aria-label={`删除 ${file.name}`}
+                disabled={disabled || file.status === "uploading"}
                 onClick={() => remove(file)}
               >
                 <DeleteOutlined />
